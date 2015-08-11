@@ -28,6 +28,10 @@ angular.module('PoundedYam.controllers', [])
             {
                 id: "4",
                 name: "Pepper Soup"
+            },
+            {
+                id: "5",
+                name: "Okra Soup"
             }
         ];
     });
