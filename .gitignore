@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+scss
+_assets
+
+
+
+
+
+# Added in by hand
+_assets/*
+.idea/*
+
