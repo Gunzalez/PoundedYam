@@ -1,3 +1,15 @@
 <div>
-    <p>List</p>
+    <h2>Meals</h2>
+    <ul>
+        <li ng-repeat="recipe in recipes">
+            <img ng-src="img/{{recipe.thumb}}" width="100%">
+            <h3 ng-bind="recipe.name"></h3>
+            <div class="buttons">
+                <ul>
+                    <li><a href="#/cook/{{recipe.id}}">Cook</a></li>
+                    <li><a href="#/shop/{{recipe.id}}">Buy</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
 </div>
