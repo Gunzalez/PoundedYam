@@ -2,52 +2,71 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('homeController', function($scope) {
         $scope.hero = {
-            src: "hero.jpg",
-            alt: "Pounded Yam"
+            src: "meals/rice-and-beans-recipe.png",
+            alt: "Beans and Fish"
         };
         $scope.ads = [
-            { title: 'Shop 1', link: 'http://www.shop1.com', banner: '/img/ad/shop1.png' },
-            { title: 'Shop 2', link: 'http://www.shop2.com', banner: '/img/ad/shop2.png' }
+            { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
+            { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
         ]
     })
 
     .controller('detailController', function($scope, $routeParams) {
-        $scope.id = $routeParams.recipeId;
+        $scope.id = $routeParams.mealId;
+
+
+    })
+
+    .controller('navigationController', function($scope) {
+        $scope.navigate = function(destination){
+            window.location = '#/' + destination
+        }
 
 
     })
 
     .controller('shopsController', function($scope, $routeParams) {
-        $scope.id = $routeParams.recipeId;
+        $scope.id = $routeParams.mealId;
 
     })
 
     .controller('listController', function($scope) {
-        $scope.recipes = [
+
+        $scope.changeMode = function(){
+            console.log(this)
+        };
+
+        $scope.selectedIndex = 0; // Whatever the default selected index is, use -1 for no selection
+
+        $scope.itemClicked = function ($index) {
+            $scope.selectedIndex = $index;
+        };
+
+        $scope.meals = [
             {
                 id: "12",
-                name: "Pounded Yam",
-                thumb: "/img/meals/meal-pounded-yam.png"
+                name: "Pounded Yam and Egusi stew",
+                thumb: "meals/pounded-yam-and-egusi.png"
             },
             {
                 id: "22",
-                name: "Beans",
-                thumb: "/img/meals/meal-beans.png"
+                name: "Beans and Fish",
+                thumb: "meals/rice-and-beans-recipe.png"
             },
             {
                 id: "3",
-                name: "Plantain",
-                thumb: "/img/meals/meal-plantain.png"
+                name: "Jollof rice and plantain",
+                thumb: "meals/jollof-rice-and-plantian.png"
             },
             {
                 id: "4",
-                name: "Pepper Soup",
-                thumb: "/img/meals/meal-pepper-soup.png"
+                name: "Goat pepper Soup",
+                thumb: "meals/goat-pepper-soup.png"
             },
             {
                 id: "55",
-                name: "Okra Soup",
-                thumb: "/img/meals/meal-okra-soup.png"
+                name: "Eba and Okra Soup",
+                thumb: "meals/eba-okra-stew.png"
             }
         ];
     });

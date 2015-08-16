@@ -13,11 +13,11 @@ poundedYam.config(['$routeProvider',
             templateUrl: 'partials/list.html',
             controller: 'listController'
         })
-        .when('/cook/:recipeId', {
+        .when('/cook/:mealId', {
             templateUrl: 'partials/detail.html',
             controller: 'detailController'
         })
-        .when('/shop/:recipeId', {
+        .when('/shop/:mealId', {
             templateUrl: 'partials/shops.html',
             controller: 'shopsController'
         })
@@ -25,3 +25,25 @@ poundedYam.config(['$routeProvider',
             redirectTo: '/'
         });
 }]);
+
+poundedYam.directive('backImg', function(){
+    return function(scope, element, attrs){
+        var url = attrs.backImg;
+        element.css({
+            'background': 'url(' + url +') center center no-repeat',
+            'background-size' : 'cover'
+        });
+    };
+});
+
+
+poundedYam.run(function($rootScope) {
+    document.addEventListener("click", function(e) {
+        if (e.keyCode === 27)
+            console.log('Root scope change')
+    });
+
+    //document.addEventListener("click", function(e) {
+    //    $rootScope.$broadcast("documentClicked", e.target);
+    //});
+});

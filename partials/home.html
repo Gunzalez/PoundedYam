@@ -1,9 +1,10 @@
 <div class="hero" ng-controller="homeController">
-    <img ng-src="img/{{hero.src}}" />
-    <p class="description">{{hero.alt}}</p>
+    <div class="feature" back-img="img/{{hero.src}}">
+        <p class="description">{{hero.alt}}</p>
+    </div>
 </div>
-<a href="#list" class="button">Meals</a>
 <div id="banner" ng-controller="homeController">
+    <a href="#list" class="button big-button">Meals</a>
     <h2>Today's meal deal</h2>
     <ul>
         <li ng-repeat="ad in ads">
