@@ -39,10 +39,15 @@ poundedYam.directive('backImg', function(){
 
 
 poundedYam.run(function($rootScope) {
+
+    // no initial selected meal
+    $rootScope.selectedIndex = -1;
+
     document.addEventListener("click", function(e) {
         if (e.keyCode === 27)
             console.log('Root scope change')
     });
+
 
     //document.addEventListener("click", function(e) {
     //    $rootScope.$broadcast("documentClicked", e.target);

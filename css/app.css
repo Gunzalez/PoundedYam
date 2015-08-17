@@ -7333,20 +7333,19 @@ body {
   padding: 0;
 }
 
-h2 {
+h2, h3 {
   font-weight: normal;
-  font-size: 1.4em;
   margin: 0;
   padding: 10px 20px;
   width: 100%;
 }
 
+h2 {
+  font-size: 1.4em;
+}
+
 h3 {
-  font-weight: normal;
   font-size: 1.2em;
-  margin: 0;
-  padding: 10px 20px;
-  width: 100%;
 }
 
 ul {
@@ -7366,6 +7365,13 @@ ul {
   z-index: 2;
 }
 
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 .main-meal {
   position: absolute;
   width: 100%;
@@ -7374,7 +7380,7 @@ ul {
   left: 0;
   right: 0;
 }
-.main-meal .feature {
+.main-meal .imagery {
   width: 100%;
   height: 100%;
   bottom: 0;
@@ -7390,18 +7396,7 @@ ul {
   width: 100%;
 }
 
-.bottom-display {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-.home .bottom-display {
-  background: #ffffff;
-}
-.home .bottom-display .button {
-  width: 100%;
+.button {
   padding: 0 20px;
   height: 44px;
   line-height: 44px;
@@ -7412,7 +7407,14 @@ ul {
   color: #666666;
   font-size: 1.4em;
 }
-.home .bottom-display h2 {
+
+.home .bottom-bar {
+  background: #ffffff;
+}
+.home .bottom-bar .button {
+  width: 100%;
+}
+.home .bottom-bar h2 {
   width: 100%;
   height: 44px;
   line-height: 44px;
@@ -7421,22 +7423,32 @@ ul {
   background-color: #333333;
 }
 
-.meals-list li {
+.meals-list > li {
   height: 300px;
   position: relative;
   overflow: hidden;
 }
-.meals-list li h3 {
+.meals-list > li h3 {
   color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
 }
-.meals-list li .buttons {
-  padding: 10px 20px;
+.meals-list > li .buttons {
   height: 40px;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
-.meals-list li .cloak {
+.meals-list > li .actions li {
+  width: 50%;
+  float: left;
+}
+.meals-list > li .actions a {
+  height: 40px;
+  line-height: 39px;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+}
+.meals-list > li .cloak {
   width: 100%;
   height: 300px;
   position: absolute;
@@ -7448,31 +7460,19 @@ ul {
   -o-transition: opacity, 0.25s;
   transition: opacity, 0.25s;
 }
-.meals-list li .bottom-display {
+.meals-list > li .bottom-bar {
   bottom: -40px;
   -webkit-transition: bottom, 0.25s;
   -o-transition: bottom, 0.25s;
   transition: bottom, 0.25s;
 }
-.meals-list li.show-buttons h3 {
-  bottom: 40px;
-  -webkit-transition: bottom, 0.15s;
-  -o-transition: bottom, 0.15s;
-  transition: bottom, 0.15s;
-}
-.meals-list li.show-buttons .buttons {
-  bottom: 0;
-  -webkit-transition: bottom, 0.15s;
-  -o-transition: bottom, 0.15s;
-  transition: bottom, 0.15s;
-}
-.meals-list li.show-buttons .cloak {
+.meals-list > li.show-buttons .cloak {
   opacity: 1;
   -webkit-transition: opacity, 0.25s;
   -o-transition: opacity, 0.25s;
   transition: opacity, 0.25s;
 }
-.meals-list li.show-buttons .bottom-display {
+.meals-list > li.show-buttons .bottom-bar {
   bottom: 0;
   -webkit-transition: bottom, 0.25s;
   -o-transition: bottom, 0.25s;

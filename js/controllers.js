@@ -1,6 +1,9 @@
 angular.module('PoundedYam.controllers', [])
 
-    .controller('homeController', function($scope, pydataservice) {
+    .controller('homeController', function($scope, pydataservice, $rootScope) {
+
+        // reset to no initial selected meal
+        $rootScope.selectedIndex = -1;
 
         var rdn = Math.floor(Math.random() * 5);
         $scope.meal = pydataservice.getAMeal(rdn);
@@ -15,11 +18,14 @@ angular.module('PoundedYam.controllers', [])
         ]
     })
 
-    .controller('listController', function($scope, pydataservice) {
+    .controller('listController', function($scope, pydataservice, $rootScope) {
 
         $scope.meals = pydataservice.getMeals();
 
-        $scope.itemClicked = function(event) {
+        // preset with selected meal
+        $scope.selectedIndex = $rootScope.selectedIndex;
+
+        $scope.itemClicked = function(index, event) {
 
             var $thisLi = angular.element(event.target).parent('li'),
                 state = $thisLi.hasClass('show-buttons'),
@@ -31,7 +37,12 @@ angular.module('PoundedYam.controllers', [])
             } else {
                 $thisLi.addClass('show-buttons');
             }
+
+            // set new selected meal
+            $rootScope.selectedIndex = index;
+
         };
+
     })
 
     .controller('detailController', function($scope, $routeParams) {
