@@ -1,5 +1,6 @@
 var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.controllers',
+    'PoundedYam.services',
     'ngRoute'
 ]);
 

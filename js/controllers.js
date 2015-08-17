@@ -1,10 +1,9 @@
 angular.module('PoundedYam.controllers', [])
 
-    .controller('homeController', function($scope) {
-        $scope.hero = {
-            src: "meals/rice-and-beans-recipe.png",
-            alt: "Beans and Fish"
-        };
+    .controller('homeController', function($scope, poundedYamDataService) {
+
+        var rdn = Math.floor(Math.random() * 5);
+        $scope.meal = poundedYamDataService.getAMeal(rdn);
         $scope.ads = [
             { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
             { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
@@ -30,44 +29,21 @@ angular.module('PoundedYam.controllers', [])
 
     })
 
-    .controller('listController', function($scope) {
-
-        $scope.changeMode = function(){
-            console.log(this)
-        };
-
-        $scope.selectedIndex = 0; // Whatever the default selected index is, use -1 for no selection
+    .controller('listController', function($scope, poundedYamDataService) {
 
         $scope.itemClicked = function ($index) {
-            $scope.selectedIndex = $index;
+
+            var $el = angular.element(this);
+            console.log($el);
+            console.log(this);
+
+            if($el.hasClass('show-button')){
+                $el.removeClass('show-button');
+            } else {
+                $el.addClass('show-button');
+            }
         };
 
-        $scope.meals = [
-            {
-                id: "12",
-                name: "Pounded Yam and Egusi stew",
-                thumb: "meals/pounded-yam-and-egusi.png"
-            },
-            {
-                id: "22",
-                name: "Beans and Fish",
-                thumb: "meals/rice-and-beans-recipe.png"
-            },
-            {
-                id: "3",
-                name: "Jollof rice and plantain",
-                thumb: "meals/jollof-rice-and-plantian.png"
-            },
-            {
-                id: "4",
-                name: "Goat pepper Soup",
-                thumb: "meals/goat-pepper-soup.png"
-            },
-            {
-                id: "55",
-                name: "Eba and Okra Soup",
-                thumb: "meals/eba-okra-stew.png"
-            }
-        ];
+        $scope.meals = poundedYamDataService.getMeals();
     });
 

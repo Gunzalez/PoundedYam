@@ -7411,10 +7411,9 @@ ul {
   position: absolute;
   bottom: 0;
   left: 0;
-  -webkit-transition: all 0.15s;
-  -moz-transition: all 0.15s;
-  -o-transition: all 0.15s;
-  transition: all 0.15s;
+  -webkit-transition: width, 0.5s;
+  -o-transition: width, 0.5s;
+  transition: width, 0.5s;
 }
 .meals-list li .buttons {
   padding: 10px 20px;
@@ -7424,22 +7423,19 @@ ul {
   height: 40px;
   background-color: #000000;
   width: 100%;
-  -webkit-transition: all 0.15s;
-  -moz-transition: all 0.15s;
-  -o-transition: all 0.15s;
-  transition: all 0.15s;
+  -webkit-transition: width, 0.5s;
+  -o-transition: width, 0.5s;
+  transition: width, 0.5s;
 }
 .meals-list li.show-buttons h3 {
   bottom: 40px;
-  -webkit-transition: all 0.15s;
-  -moz-transition: all 0.15s;
-  -o-transition: all 0.15s;
-  transition: all 0.15s;
+  -webkit-transition: width, 0.5s;
+  -o-transition: width, 0.5s;
+  transition: width, 0.5s;
 }
 .meals-list li.show-buttons .buttons {
   bottom: 0;
-  -webkit-transition: all 0.15s;
-  -moz-transition: all 0.15s;
-  -o-transition: all 0.15s;
-  transition: all 0.15s;
+  -webkit-transition: width, 0.5s;
+  -o-transition: width, 0.5s;
+  transition: width, 0.5s;
 }
