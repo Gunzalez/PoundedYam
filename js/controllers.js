@@ -12,15 +12,21 @@ angular.module('PoundedYam.controllers', [])
             window.location = '#/cook/' + $scope.meal.id
         };
 
-        $scope.ads = [
-            { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
-            { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
-        ]
+        //$scope.ads = [
+        //    { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
+        //    { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
+        //]
     })
 
     .controller('listController', function($scope, pydataservice, $rootScope) {
 
-        $scope.meals = pydataservice.getMeals();
+        pydataservice.getMeals()
+            .success(function (data) {
+                $scope.meals = data.meals;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
 
         // preset with selected meal
         $scope.selectedIndex = $rootScope.selectedIndex;

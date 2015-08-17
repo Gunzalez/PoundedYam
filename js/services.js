@@ -1,5 +1,5 @@
 angular.module('PoundedYam.services', []).
-    factory('pydataservice', function($http) {
+    factory('pydataservice', ['$http', function($http) {
 
         var pyDataAPI = {
             data : [
@@ -32,20 +32,14 @@ angular.module('PoundedYam.services', []).
         };
 
         pyDataAPI.getMeals = function() {
-
-            //return $http({
-            //    method: 'JSONP',
-            //    url: 'http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK'
-            //});
-
-            return this.data;
+            return $http.get("data/meals.json");
         };
 
         pyDataAPI.getAMeal = function(mealId) {
+            //return $http.get("data/meal_"+ mealId +".json");
 
-            var meals = this.data;
-            return meals[mealId];
+            return this.data[mealId]
         };
 
         return pyDataAPI;
-    });
+}]);
