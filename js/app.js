@@ -40,7 +40,7 @@ poundedYam.directive('backImg', function(){
 
 poundedYam.run(function($rootScope) {
 
-    // no initial selected meal
+    // initial selected meal set to none
     $rootScope.selectedIndex = -1;
 
     document.addEventListener("click", function(e) {

@@ -1,6 +1,6 @@
 angular.module('PoundedYam.controllers', [])
 
-    .controller('homeController', function($scope, pydataservice, $rootScope) {
+    .controller('homeController', ['$scope', 'pydataservice', '$rootScope', function($scope, pydataservice, $rootScope) {
 
         // reset to no initial selected meal
         $rootScope.selectedIndex = -1;
@@ -16,9 +16,9 @@ angular.module('PoundedYam.controllers', [])
         //    { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
         //    { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
         //]
-    })
+    }])
 
-    .controller('listController', function($scope, pydataservice, $rootScope) {
+    .controller('listController', ['$scope', 'pydataservice', '$rootScope', function($scope, pydataservice, $rootScope) {
 
         pydataservice.getMeals()
             .success(function (data) {
@@ -34,11 +34,11 @@ angular.module('PoundedYam.controllers', [])
         $scope.itemClicked = function(index, event) {
 
             var $thisLi = angular.element(event.target).parent('li'),
-                state = $thisLi.hasClass('show-buttons'),
+                curLiState = $thisLi.hasClass('show-buttons'),
                 $allLi = $thisLi.parent().find('li');
 
             $allLi.removeClass('show-buttons');
-            if(state){
+            if(curLiState){
                 $thisLi.removeClass('show-buttons');
             } else {
                 $thisLi.addClass('show-buttons');
@@ -49,21 +49,21 @@ angular.module('PoundedYam.controllers', [])
 
         };
 
-    })
+    }])
 
-    .controller('detailController', function($scope, $routeParams) {
+    .controller('detailController', ['$scope', '$routeParams', function($scope, $routeParams) {
         $scope.id = $routeParams.id;
 
-    })
+    }])
 
-    .controller('shopsController', function($scope, $routeParams) {
+    .controller('shopsController', ['$scope', '$routeParams', function($scope, $routeParams) {
         $scope.id = $routeParams.id;
 
-    })
+    }])
 
-    .controller('navigationController', function($scope) {
+    .controller('navigationController', ['$scope', function($scope) {
         $scope.navigate = function(destination){
             window.location = '#/' + destination
         }
-    });
+    }]);
 
