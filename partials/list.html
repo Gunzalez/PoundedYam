@@ -1,7 +1,9 @@
 <ul class="meals-list">
-    <li ng-repeat="meal in meals" back-img="img/{{meal.thumb}}"
-        ng-click="itemClicked($index)">
+    <li ng-repeat="meal in meals" back-img="img/{{meal.thumb}}" ng-click="itemClicked($event)">
         <div class="cloak">
+
+        </div>
+        <div class="bottom-display">
             <h3 ng-bind="meal.title"></h3>
             <div class="buttons">
                 <ul>

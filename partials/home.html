@@ -1,17 +1,19 @@
-<div class="hero" ng-controller="homeController">
-    <div class="feature" back-img="img/{{meal.thumb}}">
-        <p class="description">{{meal.title}}</p>
+<div class="home" ng-controller="homeController">
+    <div class="main-meal" ng-click="goToDetail()">
+        <div class="feature" back-img="img/{{meal.thumb}}">
+            <h2 class="description">{{meal.title}}</h2>
+        </div>
     </div>
-</div>
-<div id="banner" ng-controller="homeController">
-    <a href="#list" class="button big-button">Meals</a>
-    <h2>Today's meal deal</h2>
-    <ul>
-        <li ng-repeat="ad in ads">
-            <a href="{{ad.link}}" target="_blank">
-                <img ng-src="img/{{ad.banner}}" />
-                <span ng-bind="ad.title"></span>
-            </a>
-        </li>
-    </ul>
+    <div class="bottom-display">
+        <a href="#list" class="button big-button">Meals</a>
+        <h2>Today's meal deal</h2>
+        <ul id="banner">
+            <li ng-repeat="ad in ads">
+                <a href="{{ad.link}}" target="_blank">
+                    <img ng-src="img/{{ad.banner}}" />
+                    <span ng-bind="ad.title"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
