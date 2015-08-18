@@ -1,6 +1,7 @@
 {
-    id: "12",
-    name: "Pounded Yam and Egusi stew",
-    instructions: "A set of instructions",
-    ingredients: "A set of ingredients"
+    "id": "12",
+    "title": "Pounded Yam and Egusi stew",
+    "thumb": "meals/pounded-yam-and-egusi.png",
+    "instructions": "A set of instructions for pounded yam",
+    "ingredients": "A set of ingredients for Pounded yam"
 }

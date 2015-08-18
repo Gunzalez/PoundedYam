@@ -31,8 +31,7 @@ poundedYam.directive('backImg', function(){
     return function(scope, element, attrs){
         var url = attrs.backImg;
         element.css({
-            'background': 'url(' + url +') center center no-repeat',
-            'background-size' : 'cover'
+            'background-image': 'url(' + url +')'
         });
     };
 });

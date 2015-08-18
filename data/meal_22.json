@@ -1,6 +1,7 @@
 {
-    id: "22",
-    name: "Beans and Fish",
-    instructions: "A set of instructions",
-    ingredients: "A set of ingredients"
+    "id": "22",
+    "title": "Beans and Fish",
+    "thumb": "meals/rice-and-beans-recipe.png",
+    "instructions": "A set of instructions for Beans and Fish",
+    "ingredients": "A set of ingredients for Beans and Fish"
 }

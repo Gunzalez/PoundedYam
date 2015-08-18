@@ -5,17 +5,26 @@ angular.module('PoundedYam.controllers', [])
         // reset to no initial selected meal
         $rootScope.selectedIndex = -1;
 
-        var rdn = Math.floor(Math.random() * 5);
-        $scope.meal = pydataservice.getAMeal(rdn);
+        pydataservice.getMeals()
+            .success(function (data) {
+                if(!$scope.meals){
+                    $scope.meals = data.meals;
+                }
+                var rdn = Math.floor(Math.random() * $scope.meals.length);
+                $scope.meal = $scope.meals[rdn];
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
 
         $scope.goToDetail = function(){
             window.location = '#/cook/' + $scope.meal.id
         };
 
-        //$scope.ads = [
-        //    { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
-        //    { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
-        //]
+        $scope.ads = [
+            { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
+            { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
+        ]
     }])
 
     .controller('listController', ['$scope', 'pydataservice', '$rootScope', function($scope, pydataservice, $rootScope) {
@@ -51,9 +60,16 @@ angular.module('PoundedYam.controllers', [])
 
     }])
 
-    .controller('detailController', ['$scope', '$routeParams', function($scope, $routeParams) {
+    .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
         $scope.id = $routeParams.id;
 
+        pydataservice.getAMeal($scope.id)
+            .success(function (data) {
+                $scope.meal = data;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
     }])
 
     .controller('shopsController', ['$scope', '$routeParams', function($scope, $routeParams) {
