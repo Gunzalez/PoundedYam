@@ -7368,6 +7368,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: pyFontRegular;
+  background: url("../img/background.png");
 }
 
 h2, h3 {
@@ -7401,6 +7402,7 @@ ul {
   right: 0;
   background-color: whitesmoke;
   z-index: 2;
+  display: none;
 }
 
 .bottom-bar {
@@ -7463,12 +7465,19 @@ ul {
   background-color: #333333;
 }
 
+.meals-list {
+  padding: 8px 10px;
+}
 .meals-list > li {
-  height: 400px;
+  height: 375px;
   position: relative;
   overflow: hidden;
   background-size: cover;
   background-position: 50% 50%;
+  -webkit-box-shadow: 0px 2px 15px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 15px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 15px -4px rgba(0, 0, 0, 0.75);
+  margin-bottom: 10px;
 }
 .meals-list > li h3 {
   color: #ffffff;
@@ -7492,7 +7501,7 @@ ul {
 }
 .meals-list > li .cloak {
   width: 100%;
-  height: 400px;
+  height: 375px;
   position: absolute;
   top: 0;
   left: 0;

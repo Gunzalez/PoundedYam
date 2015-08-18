@@ -27,7 +27,7 @@ angular.module('PoundedYam.controllers', [])
         ]
     }])
 
-    .controller('listController', ['$scope', 'pydataservice', '$rootScope', function($scope, pydataservice, $rootScope) {
+    .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', function($scope, pydataservice, $rootScope, anchorSmoothScroll) {
 
         pydataservice.getMeals()
             .success(function (data) {
@@ -51,16 +51,21 @@ angular.module('PoundedYam.controllers', [])
                 $thisLi.removeClass('show-buttons');
             } else {
                 $thisLi.addClass('show-buttons');
+
+                var idOfElement = 'meal-id-'+index;
+                anchorSmoothScroll.ngScrollTo(idOfElement);
             }
 
             // set new selected meal
             $rootScope.selectedIndex = index;
 
-        };
 
+        };
     }])
 
+
     .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
+
         $scope.id = $routeParams.id;
 
         pydataservice.getAMeal($scope.id)
