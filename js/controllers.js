@@ -59,7 +59,6 @@ angular.module('PoundedYam.controllers', [])
             // set new selected meal
             $rootScope.selectedIndex = index;
 
-
         };
     }])
 
@@ -77,10 +76,12 @@ angular.module('PoundedYam.controllers', [])
             });
     }])
 
+
     .controller('shopsController', ['$scope', '$routeParams', function($scope, $routeParams) {
         $scope.id = $routeParams.id;
 
     }])
+
 
     .controller('navigationController', ['$scope', function($scope) {
         $scope.navigate = function(destination){

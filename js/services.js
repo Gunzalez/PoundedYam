@@ -1,5 +1,6 @@
-angular.module('PoundedYam.services', []).
-    factory('pydataservice', ['$http', function($http) {
+angular.module('PoundedYam.services', [])
+
+    .factory('pydataservice', ['$http', function($http) {
 
         var pyDataAPI = {},
             baseUrl = "data/";
