@@ -7328,9 +7328,46 @@ button.close {
     display: none !important;
   }
 }
+@font-face {
+  /* font-family: 'yanone_kaffeesatzlight'; */
+  font-family: 'pyFontLight';
+  src: url("fonts/yanonekaffeesatz-light-webfont.eot");
+  src: url("fonts/yanonekaffeesatz-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/yanonekaffeesatz-light-webfont.woff2") format("woff2"), url("fonts/yanonekaffeesatz-light-webfont.woff") format("woff"), url("fonts/yanonekaffeesatz-light-webfont.ttf") format("truetype"), url("fonts/yanonekaffeesatz-light-webfont.svg#yanone_kaffeesatzlight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /* font-family: 'yanone_kaffeesatzregular'; */
+  font-family: 'pyFontRegular';
+  src: url("fonts/yanonekaffeesatz-regular-webfont.eot");
+  src: url("fonts/yanonekaffeesatz-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/yanonekaffeesatz-regular-webfont.woff2") format("woff2"), url("fonts/yanonekaffeesatz-regular-webfont.woff") format("woff"), url("fonts/yanonekaffeesatz-regular-webfont.ttf") format("truetype"), url("fonts/yanonekaffeesatz-regular-webfont.svg#yanone_kaffeesatzregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /* font-family: 'yanone_kaffeesatzthin'; */
+  font-family: 'pyFontThin';
+  src: url("fonts/yanonekaffeesatz-thin-webfont.eot");
+  src: url("fonts/yanonekaffeesatz-thin-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/yanonekaffeesatz-thin-webfont.woff2") format("woff2"), url("fonts/yanonekaffeesatz-thin-webfont.woff") format("woff"), url("fonts/yanonekaffeesatz-thin-webfont.ttf") format("truetype"), url("fonts/yanonekaffeesatz-thin-webfont.svg#yanone_kaffeesatzthin") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /* font-family: 'yanone_kaffeesatzbold'; */
+  font-family: 'pyFontBold';
+  src: url("fonts/yanonekaffeesatz-bold-webfont.eot");
+  src: url("fonts/yanonekaffeesatz-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/yanonekaffeesatz-bold-webfont.woff2") format("woff2"), url("fonts/yanonekaffeesatz-bold-webfont.woff") format("woff"), url("fonts/yanonekaffeesatz-bold-webfont.ttf") format("truetype"), url("fonts/yanonekaffeesatz-bold-webfont.svg#yanone_kaffeesatzbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: pyFontRegular;
 }
 
 h2, h3 {
@@ -7338,14 +7375,15 @@ h2, h3 {
   margin: 0;
   padding: 10px 20px;
   width: 100%;
+  font-family: 'pyFontLight';
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 2.0em;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.8em;
 }
 
 ul {
