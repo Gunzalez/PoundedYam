@@ -11,8 +11,8 @@
             <a href="" class="btn-list"><div class="icon icon-list"></div></a>
         </div>
         <div class="deal-meals">
-            <h2>Meal deals</h2>
-            <ul id="banner">
+            <h2>Latest meal deals <span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
+            <ul class="banner">
                 <li ng-repeat="deal in deals" ng-show=" displayMeal == $index">
                     <a href="">
                         <h3 ng-bind="deal.title"></h3>
@@ -20,6 +20,7 @@
                     </a>
                 </li>
             </ul>
+            <a href="" class="btn-list banner-controller" ng-click="bannerBtnClicked()"><div class="icon icon-chevron-right"></div></a>
         </div>
     </div>
 </div>

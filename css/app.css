@@ -7435,6 +7435,10 @@ button.close {
   content: "i";
 }
 
+.icon-chevron-right:before {
+  content: "j";
+}
+
 .icon {
   margin: 0;
   padding: 0;
@@ -7453,7 +7457,7 @@ h2, h3 {
   margin: 0;
   padding: 10px 20px;
   width: 100%;
-  font-family: 'pyFontLight';
+  font-family: pyFontRegular;
 }
 
 h2 {
@@ -7481,8 +7485,9 @@ ul {
   background: #000;
 }
 #top-bar h2 {
-  font-size: 1.4em;
+  font-size: 1.5em;
   padding-bottom: 0;
+  text-transform: uppercase;
 }
 #top-bar p {
   padding: 0 20px;
@@ -7548,7 +7553,8 @@ ul {
   color: #ffffff;
   width: 100%;
   text-shadow: 0 1px 1px #111111;
-  font-size: 2.0em;
+  font-size: 3.0em;
+  font-family: pyFontLight;
 }
 
 .button {
@@ -7564,7 +7570,7 @@ ul {
 }
 
 .home .bottom-bar {
-  background: #ffffff;
+  background: #f3bf37;
   height: 160px;
 }
 .home .bottom-bar .button {
@@ -7578,7 +7584,6 @@ ul {
   background-color: #333333;
   font-size: 1.5em;
   text-transform: uppercase;
-  font-family: 'pyFontRegular';
 }
 .home .bottom-bar .all-meals .btn-list {
   position: absolute;
@@ -7591,25 +7596,50 @@ ul {
   overflow: hidden;
   color: #ffffff;
 }
+.home .bottom-bar .deal-meals {
+  position: relative;
+}
 .home .bottom-bar .deal-meals h2 {
   padding: 0 20px;
   height: 40px;
   line-height: 42px;
   font-size: 1.5em;
   text-transform: uppercase;
-  font-family: 'pyFontRegular';
+  color: #000000;
 }
-.home .bottom-bar .deal-meals a {
+.home .bottom-bar .deal-meals .banner {
+  height: 60px;
+}
+.home .bottom-bar .deal-meals .banner a {
   display: block;
+  text-decoration: underline;
+  color: #333333;
+  margin-right: 50px;
 }
-.home .bottom-bar .deal-meals h3 {
+.home .bottom-bar .deal-meals .banner h3 {
   padding: 0 20px;
   font-size: 1.4em;
 }
-.home .bottom-bar .deal-meals p {
+.home .bottom-bar .deal-meals .banner p {
   padding: 0 20px;
   margin: 0;
   font-size: 1.1em;
+}
+.home .bottom-bar .deal-meals .banner-controller {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 40px;
+  height: 50px;
+  font-size: 50px;
+  display: block;
+  overflow: hidden;
+  color: #333333;
+}
+.home .bottom-bar .deal-meals .banner-count {
+  float: right;
+  text-transform: lowercase;
+  font-size: 0.9em;
 }
 
 .meals-list {

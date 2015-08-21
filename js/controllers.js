@@ -25,7 +25,7 @@ angular.module('PoundedYam.controllers', [])
             window.location = '#/list/';
         };
 
-        $scope.displayMeal = 1;
+        $scope.displayMeal = 0;
         $scope.deals = [
             {
                 title: 'Pounded Yam and Okra stew - £4:50',
@@ -34,8 +34,33 @@ angular.module('PoundedYam.controllers', [])
             {
                 title: 'Yam Porridge - £3:00',
                 shop: 'Nigerian Meals, 1 Spur Road, SE5 7TW'
+            },
+            {
+                title: 'Hot Assorted Pepper Soup - £6:50',
+                shop: 'CAPITA, 56 Grehsam Street, EC2V5 7NQ'
             }
+
         ];
+
+        $scope.bannerCount = $scope.deals.length;
+        $scope.changeBanner = function(){
+            $scope.displayMeal = $scope.displayMeal + 1;
+            if($scope.displayMeal >= $scope.bannerCount){
+                $scope.displayMeal = 0;
+            }
+        };
+
+        var timer = setInterval(function(){
+            $scope.changeBanner();
+            $scope.$apply();
+        },3000);
+
+        $scope.bannerBtnClicked = function(){
+            if(timer){
+                clearTimeout(timer);
+            }
+            $scope.changeBanner();
+        };
 
     }])
 
