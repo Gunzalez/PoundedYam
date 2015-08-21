@@ -62,6 +62,10 @@ angular.module('PoundedYam.controllers', [])
             $scope.changeBanner();
         };
 
+        $scope.swiped = function(direction){
+            console.log('Swiped ' + direction)
+        }
+
     }])
 
     .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', function($scope, pydataservice, $rootScope, anchorSmoothScroll) {

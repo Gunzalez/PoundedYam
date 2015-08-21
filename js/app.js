@@ -1,7 +1,8 @@
 var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.controllers',
     'PoundedYam.services',
-    'ngRoute'
+    'ngRoute',
+    'ngTouch'
 ]);
 
 poundedYam.config(['$routeProvider',

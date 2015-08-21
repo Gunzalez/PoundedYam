@@ -1,5 +1,5 @@
 <div class="home">
-    <div class="main-meal" ng-click="goToDetail()">
+    <div class="main-meal" ng-click="goToDetail()" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
         <div class="imagery" style="background-image: url('img/{{meal.thumb}}')">
         <!--<div class="imagery" back-img="img/{{meal.thumb}}">-->
             <h2 class="description">{{meal.title}}</h2>

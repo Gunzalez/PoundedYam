@@ -7548,7 +7548,7 @@ ul {
 }
 .main-meal .description {
   position: absolute;
-  bottom: 161px;
+  bottom: 166px;
   left: 0;
   color: #ffffff;
   width: 100%;
@@ -7571,7 +7571,7 @@ ul {
 
 .home .bottom-bar {
   background: #f3bf37;
-  height: 160px;
+  height: 165px;
 }
 .home .bottom-bar .button {
   width: 100%;
@@ -7608,7 +7608,7 @@ ul {
   color: #000000;
 }
 .home .bottom-bar .deal-meals .banner {
-  height: 60px;
+  height: 65px;
 }
 .home .bottom-bar .deal-meals .banner a {
   display: block;
@@ -7623,7 +7623,7 @@ ul {
 .home .bottom-bar .deal-meals .banner p {
   padding: 0 20px;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 .home .bottom-bar .deal-meals .banner-controller {
   position: absolute;
