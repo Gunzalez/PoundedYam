@@ -6,15 +6,20 @@
         </div>
     </div>
     <div class="bottom-bar">
-        <a href="#list" class="button big-button">Meals</a>
-        <h2>Today's meal deal </h2>
-        <!--<ul id="banner">-->
-            <!--<li ng-repeat="ad in ads">-->
-                <!--<a href="{{ad.link}}" target="_blank">-->
-                    <!--<img ng-src="img/{{ad.banner}}" />-->
-                    <!--<span ng-bind="ad.title"></span>-->
-                <!--</a>-->
-            <!--</li>-->
-        <!--</ul>-->
+        <div class="all-meals" ng-click="goToListPage()">
+            <h2>All meals</h2>
+            <a href="" class="btn-list"><div class="icon icon-list"></div></a>
+        </div>
+        <div class="deal-meals">
+            <h2>Meal deals</h2>
+            <ul id="banner">
+                <li ng-repeat="deal in deals" ng-show=" displayMeal == $index">
+                    <a href="">
+                        <h3 ng-bind="deal.title"></h3>
+                        <p ng-bind="deal.shop"></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

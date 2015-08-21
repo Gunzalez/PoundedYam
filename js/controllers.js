@@ -18,13 +18,25 @@ angular.module('PoundedYam.controllers', [])
             });
 
         $scope.goToDetail = function(){
-            window.location = '#/cook/' + $scope.meal.id
+            window.location = '#/cook/' + $scope.meal.id;
         };
 
-        $scope.ads = [
-            { title: 'Shop 1', link: 'http://www.shop1.com', banner: 'ad/shop1.png' },
-            { title: 'Shop 2', link: 'http://www.shop2.com', banner: 'ad/shop2.png' }
-        ]
+        $scope.goToListPage = function(){
+            window.location = '#/list/';
+        };
+
+        $scope.displayMeal = 1;
+        $scope.deals = [
+            {
+                title: 'Pounded Yam and Okra stew - £4:50',
+                shop: 'Mama Put, 16 Edgware Road, N15 0LH'
+            },
+            {
+                title: 'Yam Porridge - £3:00',
+                shop: 'Nigerian Meals, 1 Spur Road, SE5 7TW'
+            }
+        ];
+
     }])
 
     .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', function($scope, pydataservice, $rootScope, anchorSmoothScroll) {
@@ -63,7 +75,7 @@ angular.module('PoundedYam.controllers', [])
     }])
 
 
-    .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
+    .controller('detailController', ['$scope', 'pydataservice', '$rootScope', '$routeParams', function($scope, pydataservice, $rootScope, $routeParams) {
 
         $scope.id = $routeParams.id;
 
@@ -77,15 +89,35 @@ angular.module('PoundedYam.controllers', [])
     }])
 
 
-    .controller('shopsController', ['$scope', '$routeParams', function($scope, $routeParams) {
+    .controller('shopsController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
         $scope.id = $routeParams.id;
+
+
+
+
 
     }])
 
 
-    .controller('navigationController', ['$scope', function($scope) {
+    .controller('navigationController', ['$scope', '$rootScope', '$location', '$element', function($scope,  $rootScope, $location, $element) {
+
+        $scope.$watch(function() {
+            return $rootScope.cssPage;
+        }, function() {
+            $scope.cssPage = $rootScope.cssPage;
+            $element.removeAttr('class').addClass($scope.cssPage);
+        });
+
         $scope.navigate = function(destination){
-            window.location = '#/' + destination
+            if(window.location != destination){
+               window.location = destination
+            }
+        };
+
+        $scope.goBack = function(){
+            window.history.back();
         }
+
+
     }]);
 

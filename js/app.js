@@ -38,10 +38,11 @@ poundedYam.directive('backImg', function(){
 });
 
 
-poundedYam.run(function($rootScope) {
+poundedYam.run(function($rootScope, $location) {
 
     // initial selected meal set to none
     $rootScope.selectedIndex = -1;
+    $rootScope.cssPage = '';
 
     document.addEventListener("click", function(e) {
         if (e.keyCode === 27)
@@ -52,7 +53,34 @@ poundedYam.run(function($rootScope) {
     //document.addEventListener("click", function(e) {
     //    $rootScope.$broadcast("documentClicked", e.target);
     //});
+
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+
+        var nextTemplate = next.templateUrl;
+
+        switch(nextTemplate){
+            case 'partials/home.html':
+                $rootScope.cssPage = 'home';
+                break;
+            case 'partials/list.html':
+                $rootScope.cssPage = 'list';
+                break;
+            case 'partials/detail.html':
+                $rootScope.cssPage = 'detail';
+                break;
+            case 'partials/shops.html':
+                $rootScope.cssPage = 'shops';
+                break;
+            default :
+                // do nothing
+        }
+
+
+    });
+
 });
+
+
 
 
 

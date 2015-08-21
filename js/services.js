@@ -55,11 +55,11 @@ angular.module('PoundedYam.services', [])
 
             function elmYPosition(idOfElement) {
                 var elm = document.getElementById(idOfElement);
-                var y = elm.offsetTop - 8;
+                var y = elm.offsetTop;
                 var node = elm;
                 while (node.offsetParent && node.offsetParent != document.body) {
                     node = node.offsetParent;
-                    y += node.offsetTop;
+                    y += node.offsetTop - 70;
                 } return y;
             }
         };
