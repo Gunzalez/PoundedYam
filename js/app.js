@@ -2,9 +2,12 @@ var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.controllers',
     'PoundedYam.services',
     'ngRoute',
-    'ngTouch'
+    'ngTouch',
+    'ngCookies'
 ]);
 
+
+// Routing
 poundedYam.config(['$routeProvider',
     function($routeProvider) {$routeProvider
         .when('/', {
@@ -29,6 +32,8 @@ poundedYam.config(['$routeProvider',
 }]);
 
 
+
+// Directives
 poundedYam.directive('backImg', function(){
     return function(scope, element, attrs){
         var url = attrs.backImg;
@@ -50,21 +55,31 @@ poundedYam.directive('imageonload', function() {
 });
 
 
-poundedYam.run(function($rootScope, $location) {
+
+// Global scope variables
+poundedYam.run(function($rootScope, $location, $cookies) {
+
+    //Cookie business
+    //if($cookies.get('PoundedYamSelectedMealIndex')) {
+    //    $rootScope.selectedIndex = $cookies.get('PoundedYamSelectedMealIndex');
+    //} else {
+    //    $rootScope.selectedIndex = -1;
+    //}
+
+    // Orientation watch and menu pop out
+    //document.addEventListener("click", function(e) {
+    //    $rootScope.$broadcast("documentClicked", e.target);
+    //});
+
+    //document.addEventListener("click", function(e) {
+    //    if (e.keyCode === 27)
+    //        console.log('Root scope change')
+    //});
+
 
     // initial selected meal set to none
     $rootScope.selectedIndex = -1;
     $rootScope.navCssClass = '';
-
-    document.addEventListener("click", function(e) {
-        if (e.keyCode === 27)
-            console.log('Root scope change')
-    });
-
-
-    //document.addEventListener("click", function(e) {
-    //    $rootScope.$broadcast("documentClicked", e.target);
-    //});
 
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
 
@@ -86,10 +101,7 @@ poundedYam.run(function($rootScope, $location) {
             default :
                 // do nothing
         }
-
-
     });
-
 });
 
 

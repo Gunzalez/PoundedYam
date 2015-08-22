@@ -59,41 +59,44 @@ angular.module('PoundedYam.controllers', [])
         $scope.swiped = function(direction){
             console.log('Swiped ' + direction)
         }
-
     }])
 
-    .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', function($scope, pydataservice, $rootScope, anchorSmoothScroll) {
+
+
+    .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', '$cookies', function($scope, pydataservice, $rootScope, anchorSmoothScroll, $cookies) {
+
+        // preset with selected meal
+        $scope.selectedIndex = $rootScope.selectedIndex;
 
         pydataservice.getMeals()
             .success(function (data) {
                 $scope.meals = data.meals;
+                for (var i = 0; i < $scope.meals.length; i++) {
+                    $scope.meals[i]['state'] = false;
+                }
             })
             .error(function (error) {
                 $scope.status = 'Unable to load meals data: ' + error.message;
             });
 
-        // preset with selected meal
-        $scope.selectedIndex = $rootScope.selectedIndex;
 
-        $scope.itemClicked = function(index, event) {
+        $scope.showButtons = function(index){
 
-            var $thisLi = angular.element(event.target).parent('li'),
-                curLiState = $thisLi.hasClass('show-buttons'),
-                $allLi = $thisLi.parent().find('li');
-
-            $allLi.removeClass('show-buttons');
-            if(curLiState){
-                $thisLi.removeClass('show-buttons');
-            } else {
-                $thisLi.addClass('show-buttons');
-
-                var idOfElement = 'meal-id-'+index;
-                anchorSmoothScroll.ngScrollTo(idOfElement);
-            }
+            // scroll to clicked item
+            var idOfElement = 'meal-id-'+index;
+            anchorSmoothScroll.ngScrollTo(idOfElement);
 
             // set new selected meal
             $rootScope.selectedIndex = index;
+
+            // turn all other off, and this one on or off
+            var curState = $scope.meals[index].state;
+            for (var i = 0; i < $scope.meals.length; i++) {
+                $scope.meals[i]['state'] = false;
+            }
+            $scope.meals[index].state = !curState;
         };
+
 
         $scope.shareThisMeal = function(){
             alert('Gonna share this meal now')
@@ -111,6 +114,8 @@ angular.module('PoundedYam.controllers', [])
             history.back();
         }
     }])
+
+
 
 
     .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
@@ -138,8 +143,9 @@ angular.module('PoundedYam.controllers', [])
         $scope.swapDesc = function(newDescription){
             $scope.descriptionToShow = newDescription;
         }
-
     }])
+
+
 
 
     .controller('shopsController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
@@ -152,8 +158,9 @@ angular.module('PoundedYam.controllers', [])
         $scope.swiped = function(){
             history.back();
         }
-
     }])
+
+
 
 
     .controller('navigationController', ['$scope', '$rootScope', '$location', function($scope,  $rootScope, $location) {
@@ -173,6 +180,5 @@ angular.module('PoundedYam.controllers', [])
         $scope.goBack = function(){
             window.history.back();
         }
-
     }]);
 
