@@ -14,7 +14,7 @@ angular.module('PoundedYam.controllers', [])
                 $scope.meal = $scope.meals[rdn];
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load meals data: ' + error.message;
             });
 
         $scope.goToDetail = function(){
@@ -26,34 +26,28 @@ angular.module('PoundedYam.controllers', [])
         };
 
         $scope.displayMeal = 0;
-        $scope.deals = [
-            {
-                title: 'Pounded Yam and Okra stew - £4:50',
-                shop: 'Mama Put, 16 Edgware Road, N15 0LH'
-            },
-            {
-                title: 'Yam Porridge - £3:00',
-                shop: 'Nigerian Meals, 1 Spur Road, SE5 7TW'
-            },
-            {
-                title: 'Hot Assorted Pepper Soup - £6:50',
-                shop: 'CAPITA, 56 Grehsam Street, EC2V5 7NQ'
-            }
+        pydataservice.getDeals()
+            .success(function (data) {
+                if(!$scope.deals){
+                    $scope.deals = data.deals;
+                }
 
-        ];
-
-        $scope.bannerCount = $scope.deals.length;
-        $scope.changeBanner = function(){
-            $scope.displayMeal = $scope.displayMeal + 1;
-            if($scope.displayMeal >= $scope.bannerCount){
-                $scope.displayMeal = 0;
-            }
-        };
+                $scope.bannerCount = $scope.deals.length;
+                $scope.changeBanner = function(){
+                    $scope.displayMeal = $scope.displayMeal + 1;
+                    if($scope.displayMeal >= $scope.bannerCount){
+                        $scope.displayMeal = 0;
+                    }
+                };
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load deals data: ' + error.message;
+            });
 
         var timer = setInterval(function(){
             $scope.changeBanner();
             $scope.$apply();
-        },3000);
+        }, 3000);
 
         $scope.bannerBtnClicked = function(){
             if(timer){
@@ -75,7 +69,7 @@ angular.module('PoundedYam.controllers', [])
                 $scope.meals = data.meals;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load meals data: ' + error.message;
             });
 
         // preset with selected meal
@@ -99,6 +93,18 @@ angular.module('PoundedYam.controllers', [])
 
             // set new selected meal
             $rootScope.selectedIndex = index;
+
+            $scope.shareThisMeal = function(){
+                alert('Gonna share this meal now')
+            };
+
+            $scope.cookThisMeal = function(id){
+                alert('Gonna cook this meal now: ' + id)
+            };
+
+            $scope.buyThisMeal = function(id){
+                alert('Gonna buy this meal now: ' + id)
+            };
 
         };
     }])

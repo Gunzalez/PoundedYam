@@ -7554,19 +7554,7 @@ ul {
   width: 100%;
   text-shadow: 0 1px 1px #111111;
   font-size: 3.0em;
-  font-family: pyFontLight;
-}
-
-.button {
-  padding: 0 20px;
-  height: 44px;
-  line-height: 44px;
-  display: block;
-  margin: 0;
-  box-sizing: border-box;
-  background-color: whitesmoke;
-  color: #666666;
-  font-size: 1.4em;
+  font-family: pyFontThin;
 }
 
 .home .bottom-bar {
@@ -7659,25 +7647,42 @@ ul {
 .meals-list > li.last-item {
   margin-bottom: 0;
 }
-.meals-list > li h3 {
+.meals-list > li h2 {
   color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 1px #111111;
+  font-family: pyFontThin;
 }
 .meals-list > li .buttons {
   height: 40px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 .meals-list > li .actions li {
-  width: 50%;
+  width: 33.3333%;
   float: left;
+  border-right: 1px solid #333333;
 }
-.meals-list > li .actions a {
-  height: 40px;
-  line-height: 39px;
+.meals-list > li .actions li.last-item {
+  border-right: none;
+}
+.meals-list > li .actions li a {
+  background: #f3bf37;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 20px;
+  height: 44px;
+  line-height: 45px;
   display: block;
-  text-align: center;
+  margin: 0;
+  box-sizing: border-box;
+  color: #000000;
   font-size: 1.2em;
+}
+.meals-list > li .actions li a .icon {
+  float: right;
+  font-size: 1.2em;
+  padding-top: 3px;
+  height: 25px;
 }
 .meals-list > li .cloak {
   width: 100%;
@@ -7692,7 +7697,7 @@ ul {
   transition: opacity, 0.25s;
 }
 .meals-list > li .bottom-bar {
-  bottom: -40px;
+  bottom: -42px;
   -webkit-transition: bottom, 0.25s;
   -o-transition: bottom, 0.25s;
   transition: bottom, 0.25s;
@@ -7704,7 +7709,7 @@ ul {
   transition: opacity, 0.25s;
 }
 .meals-list > li.show-buttons .bottom-bar {
-  bottom: 0;
+  bottom: -1px;
   -webkit-transition: bottom, 0.25s;
   -o-transition: bottom, 0.25s;
   transition: bottom, 0.25s;
