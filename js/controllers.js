@@ -113,7 +113,7 @@ angular.module('PoundedYam.controllers', [])
     }])
 
 
-    .controller('detailController', ['$scope', 'pydataservice', '$rootScope', '$routeParams', function($scope, pydataservice, $rootScope, $routeParams) {
+    .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
 
         $scope.id = $routeParams.id;
 
@@ -127,6 +127,19 @@ angular.module('PoundedYam.controllers', [])
 
         $scope.swiped = function(){
             history.back();
+        };
+
+        $scope.isReady = false;
+        var timer = setTimeout(function(){
+
+            $scope.isReady = true;
+            $scope.$apply();
+
+        }, 500);
+
+        $scope.descriptionToShow = 'about';
+        $scope.swapDesc = function(newDescription){
+            $scope.descriptionToShow = newDescription;
         }
 
     }])
@@ -146,13 +159,12 @@ angular.module('PoundedYam.controllers', [])
     }])
 
 
-    .controller('navigationController', ['$scope', '$rootScope', '$location', '$element', function($scope,  $rootScope, $location, $element) {
+    .controller('navigationController', ['$scope', '$rootScope', '$location', function($scope,  $rootScope, $location) {
 
         $scope.$watch(function() {
-            return $rootScope.cssPage;
+            return $rootScope.navCssClass;
         }, function() {
-            $scope.cssPage = $rootScope.cssPage;
-            $element.removeAttr('class').addClass($scope.cssPage);
+            $scope.navCssClass = $rootScope.navCssClass;
         });
 
         $scope.navigate = function(destination){

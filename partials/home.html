@@ -7,11 +7,11 @@
     </div>
     <div class="bottom-bar">
         <div class="all-meals" ng-click="goToListPage()">
-            <h2>All meals</h2>
+            <h2>Cook one of these meals</h2>
             <a href="" class="btn-list"><span class="icon icon-right"></span></a>
         </div>
         <div class="deal-meals">
-            <h2>Latest meal deals <span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
+            <h2>Buy on of these deals<span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
             <ul class="banner">
                 <li ng-repeat="deal in deals" ng-show=" displayMeal == $index">
                     <a href="">

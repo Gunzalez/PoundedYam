@@ -7708,3 +7708,63 @@ ul {
   -o-transition: bottom, 0.25s;
   transition: bottom, 0.25s;
 }
+
+#detail .scroll-bar {
+  position: absolute;
+  top: 405px;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  -webkit-transition: top, 0.25s;
+  -o-transition: top, 0.25s;
+  transition: top, 0.25s;
+}
+#detail.ready .scroll-bar {
+  top: 140px;
+  -webkit-transition: top, 0.25s;
+  -o-transition: top, 0.25s;
+  transition: top, 0.25s;
+}
+#detail .detail-container {
+  background: #ffffff;
+  height: 700px;
+}
+#detail .detail-container .headings {
+  float: left;
+  width: 100%;
+}
+#detail .detail-container .headings li {
+  width: 33.33337%;
+  border-right: 1px solid #cccccc;
+  float: left;
+}
+#detail .detail-container .headings li.last-item {
+  border-right: none;
+}
+#detail .detail-container .headings li a {
+  background: #a3a3a3;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 20px;
+  height: 44px;
+  line-height: 44px;
+  display: block;
+  margin: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 1.3em;
+  text-align: center;
+  -webkit-transition: background, 0.25s;
+  -o-transition: background, 0.25s;
+  transition: background, 0.25s;
+}
+#detail .detail-container .headings li a.on {
+  background: #333333;
+  -webkit-transition: background, 0.25s;
+  -o-transition: background, 0.25s;
+  transition: background, 0.25s;
+}
+#detail .detail-container .description {
+  clear: left;
+  padding: 10px 15px;
+}

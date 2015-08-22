@@ -1,7 +1,12 @@
+Note -
 Get better fonts - http://www.1001fonts.com/ostrich-sans-font.html
+Font-icons for buttons - zipped and http://app.fontastic.me/
+
+TODO -
 CSS background Zoom
 Homepage carousel
+Fix swapping
+Shops page
+Detail page
 
 
-
-Font-icons for buttons - zipped and http://app.fontastic.me/

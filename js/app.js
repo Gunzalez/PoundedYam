@@ -43,7 +43,7 @@ poundedYam.run(function($rootScope, $location) {
 
     // initial selected meal set to none
     $rootScope.selectedIndex = -1;
-    $rootScope.cssPage = '';
+    $rootScope.navCssClass = '';
 
     document.addEventListener("click", function(e) {
         if (e.keyCode === 27)
@@ -61,16 +61,16 @@ poundedYam.run(function($rootScope, $location) {
 
         switch(nextTemplate){
             case 'partials/home.html':
-                $rootScope.cssPage = 'home';
+                $rootScope.navCssClass = 'home';
                 break;
             case 'partials/list.html':
-                $rootScope.cssPage = 'list';
+                $rootScope.navCssClass = 'list';
                 break;
             case 'partials/detail.html':
-                $rootScope.cssPage = 'detail';
+                $rootScope.navCssClass = 'detail';
                 break;
             case 'partials/shops.html':
-                $rootScope.cssPage = 'shops';
+                $rootScope.navCssClass = 'shops';
                 break;
             default :
                 // do nothing

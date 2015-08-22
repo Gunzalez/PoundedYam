@@ -1,15 +1,22 @@
-<div class="home">
+<div id="detail" ng-class="{'ready': isReady }">
     <div class="main-meal">
         <div class="imagery" style="background-image: url('img/{{meal.thumb}}')" ng-swipe-right="swiped()">
             <!--<div class="imagery" back-img="img/{{meal.thumb}}">-->
             <h2 class="description">{{meal.title}}</h2>
         </div>
     </div>
-    <div class="bottom-bar">
-        <a href="">Shop</a>
-        <div class="details">
-            <a href="">Ingredients</a>
-            <a href="">Instructions</a>
+    <div class="scroll-bar">
+        <div class="detail-container">
+            <ul class="headings">
+                <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'about'}" ng-click="swapDesc('about')">About</a></li>
+                <li><a href="" ng-class="{'on': descriptionToShow == 'ingredients'}" ng-click="swapDesc('ingredients')">Things</a></li>
+                <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Steps</a></li>
+            </ul>
+            <div class="description">
+                <div class="about" ng-bind="meal.about" ng-show="descriptionToShow == 'about'"></div>
+                <div class="ingredients" ng-bind="meal.ingredients" ng-show="descriptionToShow == 'ingredients'"></div>
+                <div class="instructions" ng-bind="meal.instructions" ng-show="descriptionToShow == 'instructions'"></div>
+            </div>
         </div>
     </div>
 </div>
