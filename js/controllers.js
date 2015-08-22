@@ -10,7 +10,8 @@ angular.module('PoundedYam.controllers', [])
                 if(!$scope.meals){
                     $scope.meals = data.meals;
                 }
-                var rdn = Math.floor(Math.random() * $scope.meals.length);
+                $scope.mealCount = $scope.meals.length;
+                var rdn = Math.floor(Math.random() * $scope.mealCount);
                 $scope.meal = $scope.meals[rdn];
             })
             .error(function (error) {

@@ -11,19 +11,39 @@
             "thumb": "meals/rice-and-beans-recipe.png"
         },
         {
+            "id": "9",
+            "title": "Suya Meat",
+            "thumb": "meals/suya.png"
+        },
+        {
             "id": "3",
-            "title": "Jollof rice and plantain",
+            "title": "Jollof Rice and Plantain",
             "thumb": "meals/jollof-rice-and-plantian.png"
         },
         {
             "id": "4",
-            "title": "Goat pepper Soup",
+            "title": "Goat Meat Pepper Soup",
             "thumb": "meals/goat-pepper-soup.png"
         },
         {
             "id": "55",
-            "title": "Eba and Okra Soup",
+            "title": "Eba and Okra Stew",
             "thumb": "meals/eba-okra-stew.png"
+        },
+        {
+            "id": "7",
+            "title": "Amala and Ewedu soup",
+            "thumb": "meals/ewedu-and-amala.png"
+        },
+        {
+            "id": "10",
+            "title": "Puff Puff",
+            "thumb": "meals/puff-puff.png"
+        },
+        {
+            "id": "11",
+            "title": "Roasted Plantain and Groundnuts",
+            "thumb": "meals/roasted-plantain-and-groundnut.png"
         }
     ]
 }
