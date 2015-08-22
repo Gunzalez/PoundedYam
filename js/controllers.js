@@ -130,12 +130,9 @@ angular.module('PoundedYam.controllers', [])
         };
 
         $scope.isReady = false;
-        var timer = setTimeout(function(){
-
+        $scope.setToReady = function(){
             $scope.isReady = true;
-            $scope.$apply();
-
-        }, 500);
+        };
 
         $scope.descriptionToShow = 'about';
         $scope.swapDesc = function(newDescription){
@@ -176,7 +173,6 @@ angular.module('PoundedYam.controllers', [])
         $scope.goBack = function(){
             window.history.back();
         }
-
 
     }]);
 

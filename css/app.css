@@ -7439,6 +7439,10 @@ button.close {
   content: "c";
 }
 
+.display-none {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7715,15 +7719,15 @@ ul {
   left: 0;
   width: 100%;
   z-index: 3;
-  -webkit-transition: top, 0.25s;
-  -o-transition: top, 0.25s;
-  transition: top, 0.25s;
+  -webkit-transition: top, 0.5s;
+  -o-transition: top, 0.5s;
+  transition: top, 0.5s;
 }
 #detail.ready .scroll-bar {
   top: 140px;
-  -webkit-transition: top, 0.25s;
-  -o-transition: top, 0.25s;
-  transition: top, 0.25s;
+  -webkit-transition: top, 0.5s;
+  -o-transition: top, 0.5s;
+  transition: top, 0.5s;
 }
 #detail .detail-container {
   background: #ffffff;
@@ -7742,7 +7746,7 @@ ul {
   border-right: none;
 }
 #detail .detail-container .headings li a {
-  background: #a3a3a3;
+  background: #7f7f7f;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 20px;
@@ -7754,15 +7758,15 @@ ul {
   color: #ffffff;
   font-size: 1.3em;
   text-align: center;
-  -webkit-transition: background, 0.25s;
-  -o-transition: background, 0.25s;
-  transition: background, 0.25s;
+  -webkit-transition: background, 0.5s;
+  -o-transition: background, 0.5s;
+  transition: background, 0.5s;
 }
 #detail .detail-container .headings li a.on {
   background: #333333;
-  -webkit-transition: background, 0.25s;
-  -o-transition: background, 0.25s;
-  transition: background, 0.25s;
+  -webkit-transition: background, 0.5s;
+  -o-transition: background, 0.5s;
+  transition: background, 0.5s;
 }
 #detail .detail-container .description {
   clear: left;
