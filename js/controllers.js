@@ -47,7 +47,7 @@ angular.module('PoundedYam.controllers', [])
         var timer = setInterval(function(){
             $scope.changeBanner();
             $scope.$apply();
-        }, 3000);
+        }, 6000);
 
         $scope.bannerBtnClicked = function(){
             if(timer){
@@ -93,20 +93,23 @@ angular.module('PoundedYam.controllers', [])
 
             // set new selected meal
             $rootScope.selectedIndex = index;
-
-            $scope.shareThisMeal = function(){
-                alert('Gonna share this meal now')
-            };
-
-            $scope.cookThisMeal = function(id){
-                alert('Gonna cook this meal now: ' + id)
-            };
-
-            $scope.buyThisMeal = function(id){
-                alert('Gonna buy this meal now: ' + id)
-            };
-
         };
+
+        $scope.shareThisMeal = function(){
+            alert('Gonna share this meal now')
+        };
+
+        $scope.cookThisMeal = function(id){
+            window.location = '#/cook/'+ id
+        };
+
+        $scope.buyThisMeal = function(id){
+            window.location = '#/shop/'+ id
+        };
+
+        $scope.swiped = function(){
+            history.back();
+        }
     }])
 
 
@@ -121,6 +124,11 @@ angular.module('PoundedYam.controllers', [])
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
+
+        $scope.swiped = function(){
+            history.back();
+        }
+
     }])
 
 
@@ -130,6 +138,10 @@ angular.module('PoundedYam.controllers', [])
 
 
 
+
+        $scope.swiped = function(){
+            history.back();
+        }
 
     }])
 
