@@ -125,6 +125,8 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
+        window.scroll(0,0);
+
         $scope.id = $routeParams.id;
 
         pydataservice.getAMeal($scope.id)

@@ -11,11 +11,13 @@ Fix swapping
 Shops page
 Permanent storage via cookies for fav
 Overlay for sharing
+Caching data
+Prevent orientation change
 
 
 ISSUES -
 ==================================
-Scrolling madness on details page
+Scrolling madness on details page (FIXED)
 
 
 DOING -

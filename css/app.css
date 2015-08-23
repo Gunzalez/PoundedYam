@@ -7466,12 +7466,6 @@ h3 {
   font-size: 1.8em;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 #top-bar {
   height: 70px;
   position: fixed;
@@ -7481,6 +7475,11 @@ ul {
   z-index: 2;
   color: #ffffff;
   background: #000;
+}
+#top-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 #top-bar h2 {
   font-size: 1.5em;
@@ -7531,6 +7530,11 @@ ul {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+.bottom-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .main-meal {
@@ -7635,7 +7639,9 @@ ul {
 }
 
 .meals-list {
-  margin-top: 70px;
+  list-style: none;
+  margin: 70px 0 0 0;
+  padding: 0;
 }
 .meals-list > li {
   height: 375px;
@@ -7747,9 +7753,11 @@ ul {
 }
 #detail .detail-container {
   background: #ffffff;
-  height: 700px;
 }
 #detail .detail-container .headings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   float: left;
   width: 100%;
 }
@@ -7786,5 +7794,19 @@ ul {
 }
 #detail .detail-container .description {
   clear: left;
-  padding: 10px 15px;
+  padding: 20px 15px 10px 15px;
+  min-height: 600px;
+}
+#detail .detail-container .description h2, #detail .detail-container .description h3 {
+  padding: 0 0 10px 0;
+}
+#detail .detail-container .description ul {
+  margin-left: 15px;
+  padding: 0;
+}
+#detail .detail-container .description ul li {
+  padding-bottom: 10px;
+}
+#detail .detail-container .description p {
+  padding-bottom: 10px;
 }

@@ -10,7 +10,7 @@
                 <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Steps</a></li>
             </ul>
             <div class="description">
-                <div class="about" ng-bind="meal.about" ng-show="descriptionToShow == 'about'"></div>
+                <div class="about" ng-bind-html="meal.about | convertState" ng-show="descriptionToShow == 'about'"></div>
                 <div class="ingredients" ng-bind="meal.ingredients" ng-show="descriptionToShow == 'ingredients'"></div>
                 <div class="instructions" ng-bind="meal.instructions" ng-show="descriptionToShow == 'instructions'"></div>
             </div>

@@ -3,13 +3,14 @@ var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.services',
     'ngRoute',
     'ngTouch',
-    'ngCookies'
+    'ngCookies',
+    'ngSanitize'
 ]);
 
 
 // Routing
-poundedYam.config(['$routeProvider',
-    function($routeProvider) {$routeProvider
+poundedYam.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
         .when('/', {
             templateUrl: 'partials/home.html',
             controller: 'homeController'
@@ -54,10 +55,36 @@ poundedYam.directive('imageonload', function() {
     };
 });
 
+poundedYam.filter('convertState', function ($sce) {
+    return function (state) {
+        //if (state == 1) {
+        //    return $sce.trustAsHtml("<strong>" + state + "</strong> special state");
+        //}
+        //else {
+        //    return $sce.trustAsHtml("<strong>"+state + "</strong> normal state");
+        //}
+        return $sce.trustAsHtml(state);
+    }
+});
+
 
 
 // Global scope variables
-poundedYam.run(function($rootScope, $location, $cookies) {
+poundedYam.run(function($rootScope, $location, $cookies, $anchorScroll, $window) {
+
+
+    // hack to scroll to top when navigating to new URLS but not back/forward
+    var wrap = function(method) {
+        var orig = $window.window.history[method];
+        $window.window.history[method] = function() {
+            var retVal = orig.apply(this, Array.prototype.slice.call(arguments));
+            $anchorScroll();
+            return retVal;
+            console.log('Working')
+        };
+    };
+    wrap('pushState');
+    wrap('replaceState');
 
     //Cookie business
     //if($cookies.get('PoundedYamSelectedMealIndex')) {
@@ -95,7 +122,7 @@ poundedYam.run(function($rootScope, $location, $cookies) {
                 break;
             case 'partials/detail.html':
                 $rootScope.navCssClass = 'detail';
-                $rootScope.detailMealPath = $location.path()
+                $rootScope.detailMealPath = $location.path();
                 break;
             case 'partials/shops.html':
                 $rootScope.navCssClass = 'shops';
@@ -104,9 +131,7 @@ poundedYam.run(function($rootScope, $location, $cookies) {
                 // do nothing
         }
     });
+
 });
-
-
-
 
 
