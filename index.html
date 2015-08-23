@@ -13,15 +13,15 @@
 </head>
 <body>
     <div id="top-bar" ng-class="navCssClass" ng-controller="navigationController">
-        <div class="top-bar-title home-title" ng-show="navCssClass == 'home'">
+        <div class="top-bar-title home-title" ng-if="navCssClass == 'home'">
             <h2>Featured meals</h2>
             <p><span>1</span> out of <span>5</span></p>
         </div>
-        <div class="top-bar-title list-title" ng-show="navCssClass == 'list'">
+        <div class="top-bar-title list-title" ng-if="navCssClass == 'list'">
             <h2>All meals</h2>
             <p>Click to cook, buy or share.</p>
         </div>
-        <div class="top-bar-title detail-title" ng-show="navCssClass == 'detail'">
+        <div class="top-bar-title detail-title" ng-if="navCssClass == 'detail'">
             <h2>{{meal.title}}</h2>
             <p>{{meal.strapline}}</p>
         </div>

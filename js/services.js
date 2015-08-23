@@ -46,7 +46,6 @@ angular.module('PoundedYam.services', [])
             }
             var speed = Math.round(distance / 100);
             if (speed >= 22) speed = 22;
-            speed = 25;
             var step = Math.round(distance / 25);
             var leapY = stopY > startY ? startY + step : startY - step;
             var timer = 0;

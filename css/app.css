@@ -7556,7 +7556,7 @@ h3 {
 }
 .main-meal .description {
   position: absolute;
-  bottom: 166px;
+  bottom: 168px;
   left: 0;
   color: #ffffff;
   width: 100%;
@@ -7735,6 +7735,11 @@ h3 {
   -o-transition: top, 0.5s;
   transition: top, 0.5s;
 }
+#detail .scroll-bar .box {
+  width: 100%;
+  overflow-y: scroll;
+  background-color: #ffffff;
+}
 #detail.ready .scroll-bar {
   top: 140px;
   -webkit-transition: top, 0.5s;
@@ -7742,14 +7747,10 @@ h3 {
   transition: top, 0.5s;
 }
 #detail.ready .main-meal .imagery {
-  height: 80%;
-  margin-top: -80px;
+  height: 50%;
   -webkit-transition: height, 0.5s;
   -o-transition: height, 0.5s;
   transition: height, 0.5s;
-  -webkit-transition: "margin-top", 0.5s;
-  -o-transition: "margin-top", 0.5s;
-  transition: "margin-top", 0.5s;
 }
 #detail .detail-container {
   background: #ffffff;
@@ -7795,7 +7796,6 @@ h3 {
 #detail .detail-container .description {
   clear: left;
   padding: 20px 15px 10px 15px;
-  min-height: 600px;
 }
 #detail .detail-container .description h2, #detail .detail-container .description h3 {
   padding: 0 0 10px 0;
@@ -7806,7 +7806,13 @@ h3 {
 }
 #detail .detail-container .description ul li {
   padding-bottom: 10px;
+  font-size: 1.1em;
+  font-family: pyFontLight;
+  line-height: 120%;
 }
 #detail .detail-container .description p {
   padding-bottom: 10px;
+  font-size: 1.2em;
+  font-family: pyFontLight;
+  line-height: 120%;
 }

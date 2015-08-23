@@ -126,12 +126,15 @@ angular.module('PoundedYam.controllers', [])
     .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         window.scroll(0,0);
+        //console.log(window.innerWidth);
 
         $scope.id = $routeParams.id;
 
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
+
+                $scope.scrollHeight = window.innerHeight - 184; // put this here because error anywhere else, odd!
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -183,6 +186,7 @@ angular.module('PoundedYam.controllers', [])
             return $rootScope.detailMealPath;
         }, function() {
 
+            $scope.meal = {};
             var id = $rootScope.detailMealPath.replace('/cook/','');
             if(id){
                 pydataservice.getAMeal(id)

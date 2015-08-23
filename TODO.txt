@@ -13,6 +13,8 @@ Permanent storage via cookies for fav
 Overlay for sharing
 Caching data
 Prevent orientation change
+Loading spinner
+I don't like the fonts! (see Note above)
 
 
 ISSUES -
