@@ -22,14 +22,14 @@
             <p>Click to cook, buy or share.</p>
         </div>
         <div class="top-bar-title detail-title" ng-show="navCssClass == 'detail'">
-            <h2>Meal name</h2>
-            <p>Cooking time, maybe</p>
+            <h2>{{meal.title}}</h2>
+            <p>{{meal.strapline}}</p>
         </div>
         <div class="nav-buttons">
             <a href="" class="btn-menu" ng-click="navigate('#/')"><span class="icon icon-menu"></span></a>
         </div>
     </div>
-    <div id="wrap" ng-view></div>
+    <div id="wrap" ng-view autoScroll="true"></div>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>

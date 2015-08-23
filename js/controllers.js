@@ -1,6 +1,6 @@
 angular.module('PoundedYam.controllers', [])
 
-    .controller('homeController', ['$scope', 'pydataservice', '$rootScope', function($scope, pydataservice, $rootScope) {
+    .controller('homeController', ['$scope', '$rootScope', 'navigatorService', 'pydataservice', function($scope, $rootScope, navigatorService, pydataservice) {
 
         // reset to no initial selected meal
         $rootScope.selectedIndex = -1;
@@ -19,11 +19,11 @@ angular.module('PoundedYam.controllers', [])
             });
 
         $scope.goToDetail = function(){
-            window.location = '#/cook/' + $scope.meal.id;
+            navigatorService.goToLocation('#/cook/' + $scope.meal.id);
         };
 
         $scope.goToListPage = function(){
-            window.location = '#/list/';
+            navigatorService.goToLocation('#/list/');
         };
 
         $scope.displayMeal = 0;
@@ -64,7 +64,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('listController', ['$scope', 'pydataservice', '$rootScope', 'anchorSmoothScroll', '$cookies', function($scope, pydataservice, $rootScope, anchorSmoothScroll, $cookies) {
+    .controller('listController', ['$scope', '$rootScope', '$cookies', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, $rootScope, $cookies, anchorSmoothScroll, navigatorService, pydataservice) {
 
         // preset with selected meal
         $scope.selectedIndex = $rootScope.selectedIndex;
@@ -83,19 +83,23 @@ angular.module('PoundedYam.controllers', [])
 
         $scope.showButtons = function(index){
 
-            // scroll to clicked item
-            var idOfElement = 'meal-id-'+index;
-            anchorSmoothScroll.ngScrollTo(idOfElement);
-
             // set new selected meal
             $rootScope.selectedIndex = index;
 
-            // turn all other off, and this one on or off
+            // turn all others off, and this one on or off
             var curState = $scope.meals[index].state;
             for (var i = 0; i < $scope.meals.length; i++) {
-                $scope.meals[i]['state'] = false;
+                if($rootScope.selectedIndex == i){
+                    $scope.meals[index].state = !curState;
+                    if($scope.meals[index].state){
+                        // scroll to clicked item
+                        var idOfElement = 'meal-id-'+index;
+                        anchorSmoothScroll.ngScrollTo(idOfElement);
+                    }
+                } else {
+                    $scope.meals[i]['state'] = false;
+                }
             }
-            $scope.meals[index].state = !curState;
         };
 
 
@@ -104,11 +108,11 @@ angular.module('PoundedYam.controllers', [])
         };
 
         $scope.cookThisMeal = function(id){
-            window.location = '#/cook/'+ id
+            navigatorService.goToLocation('#/cook/'+ id);
         };
 
         $scope.buyThisMeal = function(id){
-            window.location = '#/shop/'+ id
+            navigatorService.goToLocation('#/shop/'+ id);
         };
 
         $scope.swiped = function(){
@@ -119,7 +123,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('detailController', ['$scope', 'pydataservice', '$routeParams', function($scope, pydataservice, $routeParams) {
+    .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         $scope.id = $routeParams.id;
 
@@ -150,6 +154,7 @@ angular.module('PoundedYam.controllers', [])
 
 
     .controller('shopsController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
+
         $scope.id = $routeParams.id;
 
 
@@ -164,7 +169,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('navigationController', ['$scope', '$rootScope', '$location', function($scope,  $rootScope, $location) {
+    .controller('navigationController', ['$scope', '$rootScope', 'navigatorService', 'pydataservice', function($scope,  $rootScope, navigatorService, pydataservice) {
 
         $scope.$watch(function() {
             return $rootScope.navCssClass;
@@ -172,14 +177,30 @@ angular.module('PoundedYam.controllers', [])
             $scope.navCssClass = $rootScope.navCssClass;
         });
 
-        $scope.navigate = function(destination){
-            if(window.location != destination){
-               window.location = destination
+        $scope.$watch(function() {
+            return $rootScope.detailMealPath;
+        }, function() {
+
+            var id = $rootScope.detailMealPath.replace('/cook/','');
+            if(id){
+                pydataservice.getAMeal(id)
+                    .success(function (data) {
+                        $scope.meal = data;
+                    })
+                    .error(function (error) {
+                        $scope.status = 'Unable to load customer data: ' + error.message;
+                    });
             }
+        });
+
+        $scope.navigate = function(destination){
+            navigatorService.goToLocation(destination);
         };
 
         $scope.goBack = function(){
             window.history.back();
         }
+
+
     }]);
 

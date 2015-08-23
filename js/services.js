@@ -20,6 +20,20 @@ angular.module('PoundedYam.services', [])
         return pyDataAPI;
     }])
 
+    .factory('navigatorService', ['$window', '$location', function (win, $location){
+
+        //console.log(win)
+        //console.log($location)
+
+        var pydNavigator = {};
+        pydNavigator.goToLocation = function(destination){
+            if(win.location != destination){
+                win.location = destination
+            }
+        };
+        return pydNavigator;
+    }])
+
     .service('anchorSmoothScroll', function(){
 
         this.ngScrollTo = function(idOfElement) {

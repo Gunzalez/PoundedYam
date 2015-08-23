@@ -10,6 +10,7 @@ Homepage carousel
 Fix swapping
 Shops page
 Permanent storage via cookies for fav
+Overlay for sharing
 
 
 ISSUES -
@@ -17,7 +18,7 @@ ISSUES -
 Scrolling madness on details page
 
 
-DDING -
+DOING -
 ==================================
 Detail page
 

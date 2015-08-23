@@ -11,6 +11,11 @@
             "thumb": "meals/rice-and-beans-recipe.png"
         },
         {
+            "id": "30",
+            "title": "Nigerian Samosas",
+            "thumb": "meals/nigerian-samosas.png"
+        },
+        {
             "id": "9",
             "title": "Suya Meat",
             "thumb": "meals/suya.png"

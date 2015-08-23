@@ -80,6 +80,7 @@ poundedYam.run(function($rootScope, $location, $cookies) {
     // initial selected meal set to none
     $rootScope.selectedIndex = -1;
     $rootScope.navCssClass = '';
+    $rootScope.detailMealPath = '';
 
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
 
@@ -94,6 +95,7 @@ poundedYam.run(function($rootScope, $location, $cookies) {
                 break;
             case 'partials/detail.html':
                 $rootScope.navCssClass = 'detail';
+                $rootScope.detailMealPath = $location.path()
                 break;
             case 'partials/shops.html':
                 $rootScope.navCssClass = 'shops';

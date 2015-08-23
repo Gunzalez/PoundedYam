@@ -13,7 +13,7 @@
         <div class="deal-meals">
             <h2>Or just buy one of these deals<span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
             <ul class="banner">
-                <li ng-repeat="deal in deals" ng-show=" displayMeal == $index">
+                <li ng-repeat="deal in deals" ng-show="displayMeal==$index">
                     <a href="">
                         <h3 ng-bind="deal.title"></h3>
                         <p ng-bind="deal.shop"></p>
