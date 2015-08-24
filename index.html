@@ -11,8 +11,8 @@
     <script src="js/angular-sanitize.min.js"></script>
     <link rel="stylesheet" href="css/app.css" type="text/css">
 </head>
-<body>
-    <div id="top-bar" ng-class="navCssClass" ng-controller="navigationController">
+<body ng-controller="MasterController">
+    <div id="top-bar" ng-class="navCssClass">
         <div class="top-bar-title home-title" ng-if="navCssClass == 'home'">
             <h2>Featured meals</h2>
             <p><span>1</span> out of <span>5</span></p>
@@ -26,7 +26,7 @@
             <p>{{meal.strapline}}</p>
         </div>
         <div class="nav-buttons">
-            <a href="" class="btn-menu" ng-click="navigate('#/')"><span class="icon icon-menu"></span></a>
+            <a href="" class="btn-menu" ng-click="navigate('/')"><span class="icon icon-menu"></span></a>
         </div>
     </div>
     <div id="wrap" ng-view autoscroll="false"></div>

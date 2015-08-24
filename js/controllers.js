@@ -19,11 +19,11 @@ angular.module('PoundedYam.controllers', [])
             });
 
         $scope.goToDetail = function(){
-            navigatorService.goToLocation('#/cook/' + $scope.meal.id);
+            navigatorService.goToLocation('/cook/' + $scope.meal.id);
         };
 
         $scope.goToListPage = function(){
-            navigatorService.goToLocation('#/list/');
+            navigatorService.goToLocation('/list');
         };
 
         $scope.displayMeal = 0;
@@ -64,7 +64,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('listController', ['$scope', '$rootScope', '$cookies', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, $rootScope, $cookies, anchorSmoothScroll, navigatorService, pydataservice) {
+    .controller('listController', ['$scope', '$rootScope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, $rootScope, anchorSmoothScroll, navigatorService, pydataservice) {
 
         // preset with selected meal
         $scope.selectedIndex = $rootScope.selectedIndex;
@@ -108,11 +108,11 @@ angular.module('PoundedYam.controllers', [])
         };
 
         $scope.cookThisMeal = function(id){
-            navigatorService.goToLocation('#/cook/'+ id);
+            navigatorService.goToLocation('/cook/'+ id);
         };
 
         $scope.buyThisMeal = function(id){
-            navigatorService.goToLocation('#/shop/'+ id);
+            navigatorService.goToLocation('/shop/'+ id);
         };
 
         $scope.swiped = function(){
@@ -126,15 +126,18 @@ angular.module('PoundedYam.controllers', [])
     .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         window.scroll(0,0);
-        //console.log(window.innerWidth);
 
         $scope.id = $routeParams.id;
 
+        $scope.meal = {};
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
+                $scope.scrollHeight = window.innerHeight - 184; // I put this here because error anywhere else, odd!
 
-                $scope.scrollHeight = window.innerHeight - 184; // put this here because error anywhere else, odd!
+                $scope.$emit('mealUpDated', {
+                    meal: $scope.meal
+                });
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -174,29 +177,16 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('navigationController', ['$scope', '$rootScope', 'navigatorService', 'pydataservice', function($scope,  $rootScope, navigatorService, pydataservice) {
+    .controller('MasterController', ['$scope', '$rootScope', 'navigatorService', function($scope,  $rootScope, navigatorService) {
+
+        $scope.$on('mealUpDated', function(event, args){
+            $scope.meal = args.meal
+        });
 
         $scope.$watch(function() {
             return $rootScope.navCssClass;
         }, function() {
             $scope.navCssClass = $rootScope.navCssClass;
-        });
-
-        $scope.$watch(function() {
-            return $rootScope.detailMealPath;
-        }, function() {
-
-            $scope.meal = {};
-            var id = $rootScope.detailMealPath.replace('/cook/','');
-            if(id){
-                pydataservice.getAMeal(id)
-                    .success(function (data) {
-                        $scope.meal = data;
-                    })
-                    .error(function (error) {
-                        $scope.status = 'Unable to load customer data: ' + error.message;
-                    });
-            }
         });
 
         $scope.navigate = function(destination){

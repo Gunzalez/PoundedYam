@@ -70,21 +70,7 @@ poundedYam.filter('convertState', function ($sce) {
 
 
 // Global scope variables
-poundedYam.run(function($rootScope, $location, $cookies, $anchorScroll, $window) {
-
-
-    // hack to scroll to top when navigating to new URLS but not back/forward
-    var wrap = function(method) {
-        var orig = $window.window.history[method];
-        $window.window.history[method] = function() {
-            var retVal = orig.apply(this, Array.prototype.slice.call(arguments));
-            $anchorScroll();
-            return retVal;
-            console.log('Working')
-        };
-    };
-    wrap('pushState');
-    wrap('replaceState');
+poundedYam.run(function($rootScope, $cookies) {
 
     //Cookie business
     //if($cookies.get('PoundedYamSelectedMealIndex')) {
@@ -107,9 +93,8 @@ poundedYam.run(function($rootScope, $location, $cookies, $anchorScroll, $window)
     // initial selected meal set to none
     $rootScope.selectedIndex = -1;
     $rootScope.navCssClass = '';
-    $rootScope.detailMealPath = '';
 
-    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+    $rootScope.$on( "$routeChangeStart", function(event, next) {
 
         var nextTemplate = next.templateUrl;
 
@@ -122,7 +107,6 @@ poundedYam.run(function($rootScope, $location, $cookies, $anchorScroll, $window)
                 break;
             case 'partials/detail.html':
                 $rootScope.navCssClass = 'detail';
-                $rootScope.detailMealPath = $location.path();
                 break;
             case 'partials/shops.html':
                 $rootScope.navCssClass = 'shops';

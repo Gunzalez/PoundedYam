@@ -7742,15 +7742,16 @@ h3 {
 }
 #detail.ready .scroll-bar {
   top: 140px;
-  -webkit-transition: top, 0.5s;
-  -o-transition: top, 0.5s;
-  transition: top, 0.5s;
+  -webkit-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
 }
 #detail.ready .main-meal .imagery {
-  height: 50%;
-  -webkit-transition: height, 0.5s;
-  -o-transition: height, 0.5s;
-  transition: height, 0.5s;
+  height: 80%;
+  margin-top: -50px;
+  -webkit-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  transition: all, 0.5s;
 }
 #detail .detail-container {
   background: #ffffff;
