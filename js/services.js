@@ -20,7 +20,7 @@ angular.module('PoundedYam.services', [])
         return pyDataAPI;
     }])
 
-    .factory('navigatorService', ['$location', function ($location){
+    .service('navigatorService', ['$location', function ($location){
 
         var pydNavigator = {};
         pydNavigator.goToLocation = function(destination){

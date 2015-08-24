@@ -1,17 +1,23 @@
-<div class="home">
-    <div class="main-meal" ng-click="goToDetail()" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
+<div class="home-screen">
+    <div class="top-bar">
+        <div class="top-bar-title">
+            <h2>Featured meals</h2>
+            <p><span>1</span> out of <span>5</span></p>
+        </div>
+    </div>
+    <div class="main-meal" ng-click="navigate('/cook/' + meal.id)" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
         <div class="imagery" style="background-image: url('img/{{meal.thumb}}')">
         <!--<div class="imagery" back-img="img/{{meal.thumb}}">-->
             <h2 class="description">{{meal.title}}</h2>
         </div>
     </div>
     <div class="bottom-bar">
-        <div class="all-meals" ng-click="goToListPage()">
+        <div class="all-meals" ng-click="navigate('/list')">
             <h2>Cook one of {{mealCount}} meals</h2>
-            <a href="" class="btn-list"><span class="icon icon-right"></span></a>
+            <span class="icon icon-right"></span>
         </div>
         <div class="deal-meals">
-            <h2>Or just buy one of these deals<span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
+            <h2>Or buy one of these deals<span class="banner-count">{{displayMeal + 1}} of {{bannerCount}}</span></h2>
             <ul class="banner">
                 <li ng-repeat="deal in deals" ng-show="displayMeal==$index">
                     <a href="">

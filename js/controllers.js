@@ -1,9 +1,6 @@
 angular.module('PoundedYam.controllers', [])
 
-    .controller('homeController', ['$scope', '$rootScope', 'navigatorService', 'pydataservice', function($scope, $rootScope, navigatorService, pydataservice) {
-
-        // reset to no initial selected meal
-        $rootScope.selectedIndex = -1;
+    .controller('homeController', ['$scope', 'navigatorService', 'pydataservice', function($scope, navigatorService, pydataservice) {
 
         pydataservice.getMeals()
             .success(function (data) {
@@ -17,14 +14,6 @@ angular.module('PoundedYam.controllers', [])
             .error(function (error) {
                 $scope.status = 'Unable to load meals data: ' + error.message;
             });
-
-        $scope.goToDetail = function(){
-            navigatorService.goToLocation('/cook/' + $scope.meal.id);
-        };
-
-        $scope.goToListPage = function(){
-            navigatorService.goToLocation('/list');
-        };
 
         $scope.displayMeal = 0;
         pydataservice.getDeals()
@@ -56,18 +45,14 @@ angular.module('PoundedYam.controllers', [])
             }
             $scope.changeBanner();
         };
-
-        $scope.swiped = function(direction){
-            console.log('Swiped ' + direction)
-        }
     }])
 
 
 
-    .controller('listController', ['$scope', '$rootScope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, $rootScope, anchorSmoothScroll, navigatorService, pydataservice) {
+    .controller('listController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
 
         // preset with selected meal
-        $scope.selectedIndex = $rootScope.selectedIndex;
+        $scope.selectedIndex = -1;
 
         pydataservice.getMeals()
             .success(function (data) {
@@ -84,12 +69,12 @@ angular.module('PoundedYam.controllers', [])
         $scope.showButtons = function(index){
 
             // set new selected meal
-            $rootScope.selectedIndex = index;
+            $scope.selectedIndex = index;
 
             // turn all others off, and this one on or off
             var curState = $scope.meals[index].state;
             for (var i = 0; i < $scope.meals.length; i++) {
-                if($rootScope.selectedIndex == i){
+                if($scope.selectedIndex == i){
                     $scope.meals[index].state = !curState;
                     if($scope.meals[index].state){
                         // scroll to clicked item
@@ -106,18 +91,6 @@ angular.module('PoundedYam.controllers', [])
         $scope.shareThisMeal = function(){
             alert('Gonna share this meal now')
         };
-
-        $scope.cookThisMeal = function(id){
-            navigatorService.goToLocation('/cook/'+ id);
-        };
-
-        $scope.buyThisMeal = function(id){
-            navigatorService.goToLocation('/shop/'+ id);
-        };
-
-        $scope.swiped = function(){
-            history.back();
-        }
     }])
 
 
@@ -134,18 +107,10 @@ angular.module('PoundedYam.controllers', [])
             .success(function (data) {
                 $scope.meal = data;
                 $scope.scrollHeight = window.innerHeight - 184; // I put this here because error anywhere else, odd!
-
-                $scope.$emit('mealUpDated', {
-                    meal: $scope.meal
-                });
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
-
-        $scope.swiped = function(){
-            history.back();
-        };
 
         $scope.isReady = false;
         $scope.setToReady = function(){
@@ -161,42 +126,38 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('shopsController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
+    .controller('shopsController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         $scope.id = $routeParams.id;
 
+        $scope.meal = {};
+        pydataservice.getAMeal($scope.id)
+            .success(function (data) {
+                $scope.meal = data;
+                $scope.scrollHeight = window.innerHeight - 184; // I put this here because error anywhere else, odd!
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
 
-
-
-
-        $scope.swiped = function(){
-            history.back();
-        }
     }])
 
 
 
 
-    .controller('MasterController', ['$scope', '$rootScope', 'navigatorService', function($scope,  $rootScope, navigatorService) {
-
-        $scope.$on('mealUpDated', function(event, args){
-            $scope.meal = args.meal
-        });
-
-        $scope.$watch(function() {
-            return $rootScope.navCssClass;
-        }, function() {
-            $scope.navCssClass = $rootScope.navCssClass;
-        });
+    .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
 
         $scope.navigate = function(destination){
             navigatorService.goToLocation(destination);
         };
 
-        $scope.goBack = function(){
-            window.history.back();
+        $scope.swiped = function(direction){
+            if(direction == 'right'){
+                window.history.back();
+            } else {
+                window.history.forward();
+            }
         }
-
 
     }]);
 

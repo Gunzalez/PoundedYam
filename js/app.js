@@ -91,30 +91,7 @@ poundedYam.run(function($rootScope, $cookies) {
 
 
     // initial selected meal set to none
-    $rootScope.selectedIndex = -1;
-    $rootScope.navCssClass = '';
-
-    $rootScope.$on( "$routeChangeStart", function(event, next) {
-
-        var nextTemplate = next.templateUrl;
-
-        switch(nextTemplate){
-            case 'partials/home.html':
-                $rootScope.navCssClass = 'home';
-                break;
-            case 'partials/list.html':
-                $rootScope.navCssClass = 'list';
-                break;
-            case 'partials/detail.html':
-                $rootScope.navCssClass = 'detail';
-                break;
-            case 'partials/shops.html':
-                $rootScope.navCssClass = 'shops';
-                break;
-            default :
-                // do nothing
-        }
-    });
+    //$rootScope.selectedIndex = -1;
 
 });
 

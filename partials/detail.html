@@ -1,22 +1,30 @@
-<div id="detail" ng-class="{'ready': isReady }" ng-swipe-right="swiped()">
-    <div class="main-meal">
-        <div class="imagery" style="background-image: url('img/{{meal.thumb}}')"></div>
+<div class="detail-screen" ng-class="{'ready': isReady }" ng-swipe-right="swiped('right')">
+    <div class="top-bar">
+        <div class="top-bar-title">
+            <h2>{{meal.title}}</h2>
+            <p>{{meal.strapline}}</p>
+        </div>
     </div>
-    <div class="scroll-bar">
-        <div class="detail-container">
-            <ul class="headings">
-                <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'about'}" ng-click="swapDesc('about')">About</a></li>
-                <li><a href="" ng-class="{'on': descriptionToShow == 'ingredients'}" ng-click="swapDesc('ingredients')">Things</a></li>
-                <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Steps</a></li>
-            </ul>
-            <div class="box" style="height: {{scrollHeight}}px">
-                <div class="description">
-                    <div class="about" ng-bind-html="meal.about | convertState" ng-if="descriptionToShow == 'about'"></div>
-                    <div class="ingredients" ng-bind="meal.ingredients" ng-if="descriptionToShow == 'ingredients'"></div>
-                    <div class="instructions" ng-bind="meal.instructions" ng-if="descriptionToShow == 'instructions'"></div>
+    <div id="detail">
+        <div class="main-meal">
+            <div class="imagery" style="background-image: url('img/{{meal.thumb}}')"></div>
+        </div>
+        <div class="scroll-bar">
+            <div class="detail-container">
+                <ul class="headings">
+                    <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'about'}" ng-click="swapDesc('about')">About</a></li>
+                    <li><a href="" ng-class="{'on': descriptionToShow == 'ingredients'}" ng-click="swapDesc('ingredients')">Things</a></li>
+                    <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Steps</a></li>
+                </ul>
+                <div class="box" style="height:{{scrollHeight}}px">
+                    <div class="description">
+                        <div class="about" ng-bind-html="meal.about | convertState" ng-if="descriptionToShow == 'about'"></div>
+                        <div class="ingredients" ng-bind="meal.ingredients" ng-if="descriptionToShow == 'ingredients'"></div>
+                        <div class="instructions" ng-bind="meal.instructions" ng-if="descriptionToShow == 'instructions'"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <img ng-src="img/{{meal.thumb}}" imageonload="setToReady()" class="display-none" />
     </div>
-    <img ng-src="img/{{meal.thumb}}" imageonload="setToReady()" class="display-none" />
 </div>
