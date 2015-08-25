@@ -11,7 +11,7 @@
             <h2 class="description">{{meal.title}}</h2>
         </div>
     </div>
-    <div class="bottom-bar">
+    <div class="bottom-bar" ng-class="{'blue-banner': blueBanner}">
         <div class="all-meals" ng-click="navigate('/list')">
             <h2>Cook one of {{mealCount}} meals</h2>
             <span class="icon icon-right"></span>

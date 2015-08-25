@@ -16,6 +16,7 @@ angular.module('PoundedYam.controllers', [])
             });
 
         $scope.displayMeal = 0;
+        $scope.blueBanner = false;
         pydataservice.getDeals()
             .success(function (data) {
                 if(!$scope.deals){
@@ -24,6 +25,7 @@ angular.module('PoundedYam.controllers', [])
 
                 $scope.bannerCount = $scope.deals.length;
                 $scope.changeBanner = function(){
+                    $scope.blueBanner = !$scope.blueBanner;
                     $scope.displayMeal = $scope.displayMeal + 1;
                     if($scope.displayMeal >= $scope.bannerCount){
                         $scope.displayMeal = 0;
@@ -106,7 +108,7 @@ angular.module('PoundedYam.controllers', [])
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
-                $scope.scrollHeight = window.innerHeight - 184; // I put this here because error anywhere else, odd!
+                $scope.scrollHeight = (window.innerHeight - 184); // Yes, I know this is dirty
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -135,7 +137,6 @@ angular.module('PoundedYam.controllers', [])
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
-                $scope.scrollHeight = window.innerHeight - 184; // I put this here because error anywhere else, odd!
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
