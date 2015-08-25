@@ -7510,7 +7510,7 @@ h3 {
   border-bottom: none;
 }
 .menu ul li a {
-  color: #000000;
+  color: #666666;
   text-transform: uppercase;
   display: block;
   text-decoration: none;
@@ -7519,6 +7519,10 @@ h3 {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+.menu ul li a.active {
+  border: 1px solid #999999;
+  color: #444444;
 }
 
 .menu-out #main-navigation .btn-menu {

@@ -2,6 +2,10 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('homeController', ['$scope', 'navigatorService', 'pydataservice', function($scope, navigatorService, pydataservice) {
 
+        $scope.$emit('controllerLoaded', {
+            controller: 'featured'
+        });
+
         pydataservice.getMeals()
             .success(function (data) {
                 if(!$scope.meals){
@@ -53,6 +57,10 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('listController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
 
+        $scope.$emit('controllerLoaded', {
+            controller: 'list'
+        });
+
         // preset with selected meal
         $scope.selectedIndex = -1;
 
@@ -102,6 +110,10 @@ angular.module('PoundedYam.controllers', [])
 
         window.scroll(0,0);
 
+        $scope.$emit('controllerLoaded', {
+            controller: 'detail'
+        });
+
         $scope.id = $routeParams.id;
 
         $scope.meal = {};
@@ -131,6 +143,10 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('shopsController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
+        $scope.$emit('controllerLoaded', {
+            controller: 'shops'
+        });
+
         $scope.id = $routeParams.id;
 
         $scope.meal = {};
@@ -149,6 +165,9 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
 
+        $scope.$on('controllerLoaded', function(event, args){
+            $scope.curPage = args.controller
+        });
 
         $scope.navigate = function(destination){
             navigatorService.goToLocation(destination);

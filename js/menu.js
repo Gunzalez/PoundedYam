@@ -41,7 +41,12 @@
             });
             pydMenu.menu.$button.css({
                 right: pydMenu.menu.$list.width() + pydMenu.props.initialButtonPos
-            })
+            });
+
+            var activeTemplate = $('ul', pydMenu.menu.$list).attr('class');
+            console.log(activeTemplate);
+            $('.active', pydMenu.menu.$list).removeClass('active');
+            $('a.'+activeTemplate, pydMenu.menu.$list).addClass('active');
         },
 
         menuSlideIn: function(){
