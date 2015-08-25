@@ -3,8 +3,7 @@ var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.services',
     'ngRoute',
     'ngTouch',
-    'ngCookies',
-    'ngSanitize'
+    'ngCookies'
 ]);
 
 
@@ -94,5 +93,6 @@ poundedYam.run(function($rootScope, $cookies) {
     //$rootScope.selectedIndex = -1;
 
 });
+
 
 

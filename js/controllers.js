@@ -120,6 +120,7 @@ angular.module('PoundedYam.controllers', [])
         $scope.descriptionToShow = 'about';
         $scope.swapDesc = function(newDescription){
             $scope.descriptionToShow = newDescription;
+            $scope.scrollHeight = window.innerHeight - 184;
         }
     }])
 
@@ -147,6 +148,7 @@ angular.module('PoundedYam.controllers', [])
 
     .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
 
+
         $scope.navigate = function(destination){
             navigatorService.goToLocation(destination);
         };
@@ -157,6 +159,15 @@ angular.module('PoundedYam.controllers', [])
             } else {
                 window.history.forward();
             }
+        };
+
+        // slide out menu business
+        var screenWidth = window.innerWidth;
+        $scope.showmenu = false;
+
+
+        $scope.showMenu = function(){
+
         }
 
     }]);

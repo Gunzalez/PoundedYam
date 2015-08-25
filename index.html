@@ -3,21 +3,32 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Pounded Yam</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/angular.js"></script>
-    <script src="js/angular-touch.js"></script>
-    <script src="js/angular-route.min.js"></script>
-    <script src="js/angular-cookies.min.js"></script>
-    <script src="js/angular-sanitize.min.js"></script>
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
     <link rel="stylesheet" href="css/app.css" type="text/css">
+    <script src="js/angular.js"></script>
+    <script src="js/jquery/jquery-1.9.1.min.js"></script>
 </head>
 <body ng-controller="MasterController">
     <div id="main-navigation">
-        <a href="" class="btn-menu" ng-click="navigate('/')"><span class="icon icon-menu"></span></a>
+        <a href="#" class="btn-menu"><span class="icon icon-menu"></span></a>
+        <div class="menu">
+            <form>
+                <ul>
+                    <!--<li class="first-item"><input type="text" name="" id=""></li>-->
+                    <!--<li><a href="">{{3}} Results</a></li>-->
+                    <li><a href="#/">Featured Meals</a></li>
+                    <li class="last-item"><a href="#/list">All Meals</a></li>
+                </ul>
+            </form>
+        </div>
     </div>
     <div id="wrap" ng-view></div>
-    <script src="js/app.js"></script>
+    <script src="js/angular-touch.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-cookies.min.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
