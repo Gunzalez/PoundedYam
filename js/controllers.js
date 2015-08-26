@@ -75,7 +75,6 @@ angular.module('PoundedYam.controllers', [])
                 $scope.status = 'Unable to load meals data: ' + error.message;
             });
 
-
         $scope.showButtons = function(index){
 
             // set new selected meal
@@ -97,12 +96,10 @@ angular.module('PoundedYam.controllers', [])
             }
         };
 
-
         $scope.shareThisMeal = function(){
             alert('Gonna share this meal now')
         };
     }])
-
 
 
 
@@ -140,7 +137,6 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-
     .controller('shopsController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         $scope.$emit('controllerLoaded', {
@@ -157,8 +153,9 @@ angular.module('PoundedYam.controllers', [])
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
-
     }])
+
+
 
 
     .controller('howController', ['$scope', function($scope) {
@@ -166,16 +163,17 @@ angular.module('PoundedYam.controllers', [])
         $scope.$emit('controllerLoaded', {
             controller: 'how'
         });
-
     }])
+
+
 
     .controller('aboutController', ['$scope', function($scope) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'about'
         });
-
     }])
+
 
 
     .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
@@ -195,15 +193,5 @@ angular.module('PoundedYam.controllers', [])
                 window.history.forward();
             }
         };
-
-        // slide out menu business
-        var screenWidth = window.innerWidth;
-        $scope.showmenu = false;
-
-
-        $scope.showMenu = function(){
-
-        }
-
     }]);
 

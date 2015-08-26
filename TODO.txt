@@ -8,13 +8,13 @@ TODO -
 CSS background Zoom
 Homepage carousel
 Fix swiping
-Shops page
 Permanent storage via cookies for fav
 Overlay for sharing
 Caching data
 Prevent orientation change
 Loading spinner
 I don't like the fonts! (see Note above)
+Data - add one complete meal
 
 
 ISSUES -
@@ -24,6 +24,7 @@ Scrolling madness on details page (FIXED)
 
 DOING -
 ==================================
+Shops page
 
 
 DONE -
