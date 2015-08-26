@@ -43,10 +43,13 @@
                 right: pydMenu.menu.$list.width() + pydMenu.props.initialButtonPos
             });
 
+            // gets active menu option from Angular
             var activeTemplate = $('ul', pydMenu.menu.$list).attr('class');
-            console.log(activeTemplate);
             $('.active', pydMenu.menu.$list).removeClass('active');
             $('a.'+activeTemplate, pydMenu.menu.$list).addClass('active');
+
+            // Empty the search field
+            $('.search', pydMenu.menu.$list).val('');
         },
 
         menuSlideIn: function(){
@@ -56,7 +59,7 @@
             });
             pydMenu.menu.$button.css({
                 right: pydMenu.props.initialButtonPos
-            })
+            });
         },
 
         clickToClose: function(flag){
@@ -67,7 +70,6 @@
                 $('.clickToClose').remove();
             }
         },
-
 
         menuReset: function(){
             var $icon = $('span', pydMenu.menu.$button);
@@ -82,7 +84,6 @@
                 $contentBox.height($(window).height() - 184);
             }
         }
-
     };
 
     pydMenu.init = function(){
@@ -125,15 +126,13 @@
             pydMenu.menu.$button.trigger('click');
         });
 
-
         $(window).on('resize', function(){
             pydMenu.actions.menuReset();
         });
 
         $(window).on('scroll', function(){
             pydMenu.actions.menuReset();
-        })
-
+        });
     };
 
     pydMenu.init();

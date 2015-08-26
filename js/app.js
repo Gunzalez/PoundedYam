@@ -18,6 +18,14 @@ poundedYam.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'partials/list.html',
             controller: 'listController'
         })
+        .when('/about', {
+            templateUrl: 'partials/about.html',
+            controller: 'aboutController'
+        })
+        .when('/how', {
+            templateUrl: 'partials/how.html',
+            controller: 'howController'
+        })
         .when('/cook/:id', {
             templateUrl: 'partials/detail.html',
             controller: 'detailController'

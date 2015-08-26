@@ -7,7 +7,7 @@ TODO -
 ==================================
 CSS background Zoom
 Homepage carousel
-Fix swapping
+Fix swiping
 Shops page
 Permanent storage via cookies for fav
 Overlay for sharing
@@ -15,8 +15,6 @@ Caching data
 Prevent orientation change
 Loading spinner
 I don't like the fonts! (see Note above)
-Change colours in homepage banners
-Slide out menu
 
 
 ISSUES -
@@ -26,6 +24,13 @@ Scrolling madness on details page (FIXED)
 
 DOING -
 ==================================
+
+
+DONE -
+==================================
 Detail page
+Slide out menu
+Change colours in homepage banners
+
 
 

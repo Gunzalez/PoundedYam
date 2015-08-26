@@ -7515,14 +7515,27 @@ h3 {
   display: block;
   text-decoration: none;
   border: 1px solid #cccccc;
-  padding: 6px 12px;
+  padding: 8px 12px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  font-size: 1.2em;
 }
 .menu ul li a.active {
   border: 1px solid #999999;
   color: #444444;
+}
+.menu ul li .search {
+  margin-top: 5px;
+  padding: 10px 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+}
+.menu ul li .results {
+  margin-bottom: 15px;
 }
 
 .menu-out #main-navigation .btn-menu {
@@ -7612,6 +7625,11 @@ h3 {
   text-shadow: 0 1px 1px #111111;
   font-size: 3.0em;
   font-family: pyFontThin, Arial;
+}
+
+.copy-content {
+  height: 700px;
+  background-color: #ffffff;
 }
 
 .home-screen .top-bar {

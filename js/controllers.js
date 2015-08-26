@@ -161,6 +161,21 @@ angular.module('PoundedYam.controllers', [])
     }])
 
 
+    .controller('howController', ['$scope', function($scope) {
+
+        $scope.$emit('controllerLoaded', {
+            controller: 'how'
+        });
+
+    }])
+
+    .controller('aboutController', ['$scope', function($scope) {
+
+        $scope.$emit('controllerLoaded', {
+            controller: 'about'
+        });
+
+    }])
 
 
     .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
