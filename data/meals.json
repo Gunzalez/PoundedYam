@@ -3,52 +3,62 @@
         {
             "id": "9",
             "title": "Suya Meat",
-            "thumb": "meals/suya.png"
+            "thumb": "meals/suya.png",
+            "favourite": true
         },
         {
             "id": "22",
             "title": "Beans and Fish",
-            "thumb": "meals/rice-and-beans-recipe.png"
+            "thumb": "meals/rice-and-beans-recipe.png",
+            "favourite": false
         },
         {
             "id": "3",
             "title": "Jollof Rice and Plantain",
-            "thumb": "meals/jollof-rice-and-plantian.png"
+            "thumb": "meals/jollof-rice-and-plantian.png",
+            "favourite": true
         },
         {
             "id": "12",
             "title": "Pounded Yam and Egusi stew",
-            "thumb": "meals/pounded-yam-and-egusi.png"
+            "thumb": "meals/pounded-yam-and-egusi.png",
+            "favourite": false
         },
         {
             "id": "30",
             "title": "Nigerian Samosas",
-            "thumb": "meals/nigerian-samosas.png"
+            "thumb": "meals/nigerian-samosas.png",
+            "favourite": false
         },
         {
             "id": "4",
             "title": "Goat Meat Pepper Soup",
-            "thumb": "meals/goat-pepper-soup.png"
+            "thumb": "meals/goat-pepper-soup.png",
+            "favourite": true
         },
         {
             "id": "55",
             "title": "Eba and Okra Stew",
-            "thumb": "meals/eba-okra-stew.png"
+            "thumb": "meals/eba-okra-stew.png",
+            "favourite": true
         },
         {
             "id": "7",
             "title": "Amala and Ewedu soup",
-            "thumb": "meals/ewedu-and-amala.png"
+            "thumb": "meals/ewedu-and-amala.png",
+            "favourite": false
         },
         {
             "id": "10",
             "title": "Puff Puff",
-            "thumb": "meals/puff-puff.png"
+            "thumb": "meals/puff-puff.png",
+            "favourite": false
         },
         {
             "id": "11",
             "title": "Roasted Plantain and Groundnuts",
-            "thumb": "meals/roasted-plantain-and-groundnut.png"
+            "thumb": "meals/roasted-plantain-and-groundnut.png",
+            "favourite": false
         }
     ]
 }

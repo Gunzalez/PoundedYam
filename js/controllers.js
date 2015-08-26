@@ -69,8 +69,6 @@ angular.module('PoundedYam.controllers', [])
                 $scope.meals = data.meals;
                 for (var i = 0; i < $scope.meals.length; i++) {
                     $scope.meals[i]['state'] = false;
-                    $scope.meals[i]['favourite'] = false;
-
                 }
             })
             .error(function (error) {
@@ -106,8 +104,6 @@ angular.module('PoundedYam.controllers', [])
 
 
     .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
-
-        window.scroll(0,0);
 
         $scope.$emit('controllerLoaded', {
             controller: 'detail'
@@ -181,7 +177,8 @@ angular.module('PoundedYam.controllers', [])
     .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
 
         $scope.$on('controllerLoaded', function(event, args){
-            $scope.curPage = args.controller
+            $scope.curPage = args.controller;
+            window.scroll(0,0);
         });
 
         $scope.navigate = function(destination){
