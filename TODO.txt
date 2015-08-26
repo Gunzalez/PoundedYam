@@ -1,6 +1,5 @@
 Note -
 ==================================
-Get better fonts - http://www.1001fonts.com/ostrich-sans-font.html
 Font-icons for buttons - zipped and http://app.fontastic.me/
 
 TODO -
@@ -13,7 +12,6 @@ Overlay for sharing
 Caching data
 Prevent orientation change
 Loading spinner
-I don't like the fonts! (see Note above)
 Data - add one complete meal
 
 
@@ -32,6 +30,7 @@ DONE -
 Detail page
 Slide out menu
 Change colours in homepage banners
+I don't like the fonts! (see Note above)
 
 
 

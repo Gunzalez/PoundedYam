@@ -1,9 +1,9 @@
 {
     "meals" :[
         {
-            "id": "12",
-            "title": "Pounded Yam and Egusi stew",
-            "thumb": "meals/pounded-yam-and-egusi.png"
+            "id": "3",
+            "title": "Jollof Rice and Plantain",
+            "thumb": "meals/jollof-rice-and-plantian.png"
         },
         {
             "id": "22",
@@ -11,19 +11,19 @@
             "thumb": "meals/rice-and-beans-recipe.png"
         },
         {
-            "id": "30",
-            "title": "Nigerian Samosas",
-            "thumb": "meals/nigerian-samosas.png"
-        },
-        {
             "id": "9",
             "title": "Suya Meat",
             "thumb": "meals/suya.png"
         },
         {
-            "id": "3",
-            "title": "Jollof Rice and Plantain",
-            "thumb": "meals/jollof-rice-and-plantian.png"
+            "id": "12",
+            "title": "Pounded Yam and Egusi stew",
+            "thumb": "meals/pounded-yam-and-egusi.png"
+        },
+        {
+            "id": "30",
+            "title": "Nigerian Samosas",
+            "thumb": "meals/nigerian-samosas.png"
         },
         {
             "id": "4",

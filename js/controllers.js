@@ -188,9 +188,9 @@ angular.module('PoundedYam.controllers', [])
 
         $scope.swiped = function(direction){
             if(direction == 'right'){
-                window.history.back();
+                //window.history.back();
             } else {
-                window.history.forward();
+                //window.history.forward();
             }
         };
     }]);

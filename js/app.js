@@ -86,7 +86,7 @@ poundedYam.run(function($rootScope, $cookies) {
     //    $rootScope.selectedIndex = -1;
     //}
 
-    // Orientation watch and menu pop out
+    // Orientation watch
     //document.addEventListener("click", function(e) {
     //    $rootScope.$broadcast("documentClicked", e.target);
     //});
