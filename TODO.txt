@@ -31,6 +31,7 @@ Detail page
 Slide out menu
 Change colours in homepage banners
 I don't like the fonts! (see Note above)
+Add Standalone css and icon
 
 
 

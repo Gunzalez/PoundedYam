@@ -37,7 +37,8 @@
         menuSlideOut: function(){
             $('body').addClass(pydMenu.props.cssClass);
             pydMenu.menu.$list.css({
-                left: pydMenu.props.winWidth - pydMenu.menu.$list.width()
+                left: pydMenu.props.winWidth - pydMenu.menu.$list.width(),
+                height: $(window).height()
             });
             pydMenu.menu.$button.css({
                 right: pydMenu.menu.$list.width() + pydMenu.props.initialButtonPos
@@ -50,6 +51,12 @@
 
             // Empty the search field
             $('.search', pydMenu.menu.$list).val('');
+
+            $('#wrap').css({
+                height: $(window).height(),
+                overflow: 'hidden'
+            });
+
         },
 
         menuSlideIn: function(){
@@ -60,6 +67,8 @@
             pydMenu.menu.$button.css({
                 right: pydMenu.props.initialButtonPos
             });
+
+            $('#wrap').removeAttr('style');
         },
 
         clickToClose: function(flag){
@@ -72,6 +81,8 @@
         },
 
         menuReset: function(){
+            pydMenu.menu.$list.height($(window).height());
+
             var $icon = $('span', pydMenu.menu.$button);
             pydMenu.actions.positionMenu();
             pydMenu.actions.menuSlideIn();
@@ -131,7 +142,9 @@
         });
 
         $(window).on('scroll', function(){
-            pydMenu.actions.menuReset();
+            pydMenu.menu.$list.css({
+                height: $(window).height()
+            });
         });
     };
 
