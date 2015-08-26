@@ -73,6 +73,10 @@
   content: "c";
 }
 
+.icon-heart:before {
+  content: "d";
+}
+
 .display-none {
   display: none;
 }
@@ -121,7 +125,7 @@ a {
 #main-navigation .btn-menu {
   position: absolute;
   top: 12px;
-  right: 20px;
+  right: 15px;
   color: #ffffff;
   font-size: 2.5em;
   text-decoration: none;
@@ -192,7 +196,7 @@ a {
   transition: all 0.25s;
 }
 .menu-out .top-bar {
-  left: -330px;
+  left: -370px;
   -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   -o-transition: all 0.25s;
@@ -512,6 +516,14 @@ a {
 .list-screen .list > li .buttons {
   height: 45px;
   width: 100%;
+}
+.list-screen .list > li .addToFav {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  font-size: 2.4em;
+  color: hotpink;
+  text-decoration: none;
 }
 .list-screen .list > li .actions li {
   width: 33.3333%;

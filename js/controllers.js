@@ -69,6 +69,8 @@ angular.module('PoundedYam.controllers', [])
                 $scope.meals = data.meals;
                 for (var i = 0; i < $scope.meals.length; i++) {
                     $scope.meals[i]['state'] = false;
+                    $scope.meals[i]['favourite'] = false;
+
                 }
             })
             .error(function (error) {

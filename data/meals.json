@@ -1,9 +1,9 @@
 {
     "meals" :[
         {
-            "id": "3",
-            "title": "Jollof Rice and Plantain",
-            "thumb": "meals/jollof-rice-and-plantian.png"
+            "id": "9",
+            "title": "Suya Meat",
+            "thumb": "meals/suya.png"
         },
         {
             "id": "22",
@@ -11,9 +11,9 @@
             "thumb": "meals/rice-and-beans-recipe.png"
         },
         {
-            "id": "9",
-            "title": "Suya Meat",
-            "thumb": "meals/suya.png"
+            "id": "3",
+            "title": "Jollof Rice and Plantain",
+            "thumb": "meals/jollof-rice-and-plantian.png"
         },
         {
             "id": "12",

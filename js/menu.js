@@ -19,7 +19,7 @@
         cssClass: 'menu-out',
         winWidth: $(window).width(),
         winHeight: $(window).height(),
-        initialButtonPos: 20,
+        initialButtonPos: 15,
         spaceOnLeft: 80,
         clickDelay: 300
     };
