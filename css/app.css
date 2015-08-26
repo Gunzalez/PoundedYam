@@ -147,9 +147,13 @@ a {
   background: url("../img/background.png");
   box-shadow: -2px -1px 9px 1px rgba(0, 0, 0, 0.49);
 }
+.menu h2 {
+  padding: 15px 15px 0 15px;
+  text-align: right;
+}
 .menu ul {
   margin: 0;
-  padding: 10px 20px;
+  padding: 10px 15px;
   list-style: none;
 }
 .menu ul li {
@@ -234,10 +238,10 @@ a {
 }
 .top-bar h2 {
   text-transform: uppercase;
-  padding: 10px 15px 0 15px;
+  padding: 15px 15px 0 15px;
 }
 .top-bar p {
-  padding: 2px 15px;
+  padding: 0 15px;
   font-size: 0.9em;
 }
 

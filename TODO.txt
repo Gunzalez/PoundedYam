@@ -13,6 +13,8 @@ Caching data
 Prevent orientation change
 Loading spinner
 Data - add one complete meal
+Arrow thingies
+Add launch screen
 
 
 ISSUES -
