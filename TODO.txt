@@ -7,10 +7,8 @@ TODO -
 CSS background Zoom
 Homepage carousel
 Fix swiping
-Permanent storage via cookies for fav
 Overlay for sharing
 Caching data
-Prevent orientation change
 Loading spinner
 Data - add one complete meal
 Arrow thingies
@@ -34,6 +32,8 @@ Slide out menu
 Change colours in homepage banners
 I don't like the fonts! (see Note above)
 Add Standalone css and icon
+Permanent storage via cookies for fav, using local storage instead
+Prevent orientation change
 
 
 

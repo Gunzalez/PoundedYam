@@ -219,7 +219,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('MasterController', ['$scope', 'navigatorService', function($scope,  navigatorService) {
+    .controller('MasterController', ['$scope', 'navigatorService', '$window', function($scope,  navigatorService, $window) {
 
         $scope.$on('controllerLoaded', function(event, args){
             $scope.curPage = args.controller;

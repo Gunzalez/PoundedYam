@@ -1,6 +1,6 @@
 (function ($, window) {
 
-    var pydMenu = {};
+    var pydMenu = pydMenu || {};
 
     pydMenu.menu = {
         $html: $('#main-navigation'),
@@ -94,6 +94,20 @@
             if($contentBox.length > 0){
                 $contentBox.height($(window).height() - 184);
             }
+        },
+
+        alertUserOrientation: function(flag){
+            if(flag){
+                $('.changeOrientationMsg').remove();
+                var $changeOrientationMsg = $("<div class='changeOrientationMsg' />"),
+                    $imageryDiv = $("<div class='rotateImage' />");
+                $changeOrientationMsg.width(window.innerWidth).height(window.innerHeight);
+                $changeOrientationMsg.append($imageryDiv.width(window.innerWidth).height(window.innerHeight));
+                $('body').append($changeOrientationMsg);
+                $changeOrientationMsg.insertAfter("#wrap");
+            } else {
+                $('.changeOrientationMsg').remove();
+            }
         }
     };
 
@@ -139,6 +153,11 @@
 
         $(window).on('resize', function(){
             pydMenu.actions.menuReset();
+            if(window.innerWidth >= window.innerHeight){
+                pydMenu.actions.alertUserOrientation(true);
+            } else {
+                pydMenu.actions.alertUserOrientation(false);
+            }
         });
 
         $(window).on('scroll', function(){
@@ -146,6 +165,15 @@
                 height: $(window).height()
             });
         });
+
+        $(window).on("orientationchange", function(){
+            if(window.orientation != 0){
+                pydMenu.actions.alertUserOrientation(true);
+            } else {
+                pydMenu.actions.alertUserOrientation(false);
+            }
+        });
+
     };
 
     pydMenu.init();
