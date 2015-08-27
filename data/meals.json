@@ -27,38 +27,32 @@
         {
             "id": "30",
             "title": "Nigerian Samosas",
-            "thumb": "meals/nigerian-samosas.png",
-            "favourite": false
+            "thumb": "meals/nigerian-samosas.png"
         },
         {
             "id": "4",
             "title": "Goat Meat Pepper Soup",
-            "thumb": "meals/goat-pepper-soup.png",
-            "favourite": true
+            "thumb": "meals/goat-pepper-soup.png"
         },
         {
             "id": "55",
             "title": "Eba and Okra Stew",
-            "thumb": "meals/eba-okra-stew.png",
-            "favourite": true
+            "thumb": "meals/eba-okra-stew.png"
         },
         {
             "id": "7",
             "title": "Amala and Ewedu soup",
-            "thumb": "meals/ewedu-and-amala.png",
-            "favourite": false
+            "thumb": "meals/ewedu-and-amala.png"
         },
         {
             "id": "10",
             "title": "Puff Puff",
-            "thumb": "meals/puff-puff.png",
-            "favourite": false
+            "thumb": "meals/puff-puff.png"
         },
         {
             "id": "11",
             "title": "Roasted Plantain and Groundnuts",
-            "thumb": "meals/roasted-plantain-and-groundnut.png",
-            "favourite": false
+            "thumb": "meals/roasted-plantain-and-groundnut.png"
         }
     ]
 }

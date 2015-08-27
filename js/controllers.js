@@ -61,6 +61,11 @@ angular.module('PoundedYam.controllers', [])
             controller: 'list'
         });
 
+        $scope.hasLocalStorage = false;
+        if(localStorage){
+            $scope.hasLocalStorage  = true
+        }
+
         // preset with selected meal
         $scope.selectedIndex = -1;
 
@@ -68,7 +73,21 @@ angular.module('PoundedYam.controllers', [])
             .success(function (data) {
                 $scope.meals = data.meals;
                 for (var i = 0; i < $scope.meals.length; i++) {
-                    $scope.meals[i]['state'] = false;
+                    $scope.meals[i].state = false;
+
+                    if(localStorage){
+                        var favourites = localStorage.getItem("favourites");
+                        if(favourites){
+                            var favArr = favourites.split(","),
+                                arrayPos = favArr.indexOf($scope.meals[i].id);
+
+                            if(arrayPos == -1){
+                                $scope.meals[i].favourite = false
+                            } else {
+                                $scope.meals[i].favourite = true
+                            }
+                        }
+                    }
                 }
             })
             .error(function (error) {
@@ -99,6 +118,32 @@ angular.module('PoundedYam.controllers', [])
         $scope.shareThisMeal = function(){
             alert('Gonna share this meal now')
         };
+
+        $scope.favouriteClicked = function($event, $index, id){
+
+            if(localStorage){
+                var favourites = localStorage.getItem("favourites");
+                if(favourites){
+                    var favArr = favourites.split(","),
+                        arrayPos = favArr.indexOf(id);
+
+                    if(arrayPos == -1){
+                        favArr.push(id);
+                        localStorage.setItem("favourites", favArr.join(','));
+                        $scope.meals[$index].favourite = true
+                    } else {
+                        favArr.splice(arrayPos, 1);
+                        localStorage.setItem("favourites", favArr.join(','));
+                        $scope.meals[$index].favourite = false
+                    }
+                } else {
+                    localStorage.setItem("favourites", id);
+                    $scope.meals[$index].favourite = true
+                }
+            }
+            $event.stopPropagation();
+        }
+
     }])
 
 
@@ -192,5 +237,6 @@ angular.module('PoundedYam.controllers', [])
                 //window.history.forward();
             }
         };
+
     }]);
 

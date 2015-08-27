@@ -8,7 +8,7 @@
     <ul class="list">
         <li ng-repeat="meal in meals" back-img="img/{{meal.thumb}}" ng-class="{'show-buttons':meal.state, 'last-item':$last }" ng-click="showButtons($index)">
             <div class="cloak" id="meal-id-{{$index}}"></div>
-            <a href="" class="addToFav" ng-click="meal.favourite = !meal.favourite; $event.stopPropagation();">
+            <a href="" class="addToFav" ng-if="hasLocalStorage" ng-click="favouriteClicked($event, $index, meal.id);">
                 <span class="icon" ng-class="meal.favourite ? 'icon-heart' : 'icon-fav'"></span>
             </a>
             <div class="bottom-bar">
