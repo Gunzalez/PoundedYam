@@ -51,6 +51,19 @@ poundedYam.directive('backImg', function(){
     };
 });
 
+poundedYam.directive('getHeight', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var offSet = attrs.getHeight,
+                height = window.innerHeight - offSet;
+            element.css({
+                'height': height + 'px'
+            });
+        }
+    };
+});
+
 poundedYam.directive('imageonload', function() {
     return {
         restrict: 'A',
@@ -61,6 +74,9 @@ poundedYam.directive('imageonload', function() {
         }
     };
 });
+
+
+
 
 poundedYam.filter('convertState', function ($sce) {
     return function (state) {

@@ -77,6 +77,18 @@
   content: "d";
 }
 
+.icon-left:before {
+  content: "n";
+}
+
+@font-face {
+  font-family: 'Droid-Regular';
+  src: url("fonts/DroidSans-webfont.eot");
+  src: url("fonts/DroidSans-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/DroidSans-webfont.woff") format("woff"), url("fonts/DroidSans-webfont.ttf") format("truetype"), url("fonts/DroidSans-webfont.svg#droid_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .display-none {
   display: none;
 }
@@ -85,7 +97,7 @@ body {
   margin: 0;
   padding: 0;
   background: url("../img/background.png");
-  font-family: 'Droid Sans', sans-serif;
+  font-family: Droid-Regular;
 }
 
 h1, h2, h3, h4, h5, p {

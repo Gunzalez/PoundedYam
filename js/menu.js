@@ -174,6 +174,12 @@
             }
         });
 
+        if(window.innerWidth >= window.innerHeight){
+            pydMenu.actions.alertUserOrientation(true);
+        } else {
+            pydMenu.actions.alertUserOrientation(false);
+        }
+
     };
 
     pydMenu.init();

@@ -63,7 +63,12 @@ angular.module('PoundedYam.controllers', [])
 
         $scope.hasLocalStorage = false;
         if(localStorage){
-            $scope.hasLocalStorage  = true
+            $scope.hasLocalStorage  = true;
+
+            var favourites = localStorage.getItem("favourites");
+            if(favourites){
+                var favArr = favourites.split(",");
+            }
         }
 
         // preset with selected meal
@@ -75,17 +80,12 @@ angular.module('PoundedYam.controllers', [])
                 for (var i = 0; i < $scope.meals.length; i++) {
                     $scope.meals[i].state = false;
 
-                    if(localStorage){
-                        var favourites = localStorage.getItem("favourites");
-                        if(favourites){
-                            var favArr = favourites.split(","),
-                                arrayPos = favArr.indexOf($scope.meals[i].id);
-
-                            if(arrayPos == -1){
-                                $scope.meals[i].favourite = false
-                            } else {
-                                $scope.meals[i].favourite = true
-                            }
+                    if(favourites){
+                        var arrayPos = favArr.indexOf($scope.meals[i].id);
+                        if(arrayPos == -1){
+                            $scope.meals[i].favourite = false
+                        } else {
+                            $scope.meals[i].favourite = true
                         }
                     }
                 }
@@ -160,7 +160,6 @@ angular.module('PoundedYam.controllers', [])
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
-                $scope.scrollHeight = (window.innerHeight - 184); // Yes, I know this is dirty
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -174,7 +173,6 @@ angular.module('PoundedYam.controllers', [])
         $scope.descriptionToShow = 'about';
         $scope.swapDesc = function(newDescription){
             $scope.descriptionToShow = newDescription;
-            $scope.scrollHeight = window.innerHeight - 184;
         }
     }])
 

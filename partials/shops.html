@@ -1,12 +1,19 @@
-<div class="shops-screen" ng-swipe-right="swiped('right')">
+<div class="shops-screen" ng-class="{'ready': isReady }" ng-swipe-right="swiped('right')">
     <div class="top-bar">
         <div class="top-bar-title">
             <h2>{{meal.title}}</h2>
             <p>{{meal.strapline}}</p>
         </div>
     </div>
-    <div ng-swipe-right="swiped()">
-        <div style="width: 100%; height: 80px;"></div>
-        <h2 style="padding: 0 15px">TODO: Where to buy {{meal.title}}</h2>
+    <div id="detail">
+        <div class="main-meal">
+            <div class="imagery" style="background-image: url('img/{{meal.thumb}}')"></div>
+        </div>
+        <div class="scroll-bar">
+            <div class="detail-container">
+                <h2 style="padding: 0 15px">TODO: Where to buy {{meal.title}}</h2>
+            </div>
+        </div>
+        <img src="img/{{meal.thumb}}" imageonload="setToReady()" class="display-none" />
     </div>
 </div>
