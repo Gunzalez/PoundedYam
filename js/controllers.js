@@ -43,6 +43,7 @@ angular.module('PoundedYam.controllers', [])
                     $scope.blueBanner = !$scope.blueBanner;
                     $scope.displayMeal = $scope.displayMeal + 1;
                     if($scope.displayMeal >= $scope.bannerCount){
+                        $scope.easterEgg = true;
                         $scope.displayMeal = 0;
                     }
                 };
@@ -54,7 +55,7 @@ angular.module('PoundedYam.controllers', [])
         var timer = setInterval(function(){
             $scope.changeBanner();
             $scope.$apply();
-        }, 10000);
+        }, 7000);
 
         $scope.bannerBtnClicked = function(){
             if(timer){
@@ -62,6 +63,12 @@ angular.module('PoundedYam.controllers', [])
             }
             $scope.changeBanner();
         };
+
+        //$scope.easterEgg = false;
+        //var egg = setTimeout(function(){
+        //    $scope.easterEgg = true;
+        //    clearTimeout(egg);
+        //}, 30000);
     }])
 
 
@@ -246,10 +253,5 @@ angular.module('PoundedYam.controllers', [])
             }
         };
 
-        $scope.easterEgg = false;
-        var egg = setTimeout(function(){
-            $scope.easterEgg = true;
-            clearTimeout(egg);
-        }, 30000);
     }]);
 

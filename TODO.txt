@@ -2,6 +2,8 @@ Note -
 ==================================
 Font-icons for buttons - zipped and http://app.fontastic.me/
 
+
+
 TODO -
 ==================================
 : Maybe
@@ -17,17 +19,26 @@ Caching data
 Loading spinner
 Data - add one complete meal
 Add launch screen
+Easter egg issue on standalone
+
 
 
 ISSUES -
 ==================================
 Scrolling madness on details page (FIXED)
 Carousel click
+White background for Text pages, How and ABout
+
+
 
 
 DOING -
 ==================================
 Shops page
+
+
+
+
 
 
 DONE -

@@ -133,31 +133,6 @@ div.rn-carousel-indicator span.active {
   color: white;
 }
 
-/* prev/next controls */
-.rn-carousel-control {
-  transition: opacity 0.2s ease-out;
-  font-size: 2rem;
-  position: absolute;
-  top: 40%;
-  opacity: 0.75;
-  cursor: pointer;
-}
-.rn-carousel-control:hover {
-  opacity: 1;
-}
-.rn-carousel-control.rn-carousel-control-prev {
-  left: 0.5em;
-}
-.rn-carousel-control.rn-carousel-control-prev:before {
-  content: "<";
-}
-.rn-carousel-control.rn-carousel-control-next {
-  right: 0.5em;
-}
-.rn-carousel-control.rn-carousel-control-next:before {
-  content: ">";
-}
-
 ul.image {
   position: absolute;
   top: 0;
@@ -166,7 +141,6 @@ ul.image {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000000;
 }
 ul.image.easter-egg {
   background-size: cover;
