@@ -15,7 +15,7 @@
 <body ng-controller="MasterController">
     <div id="main-navigation">
         <a href="#" class="btn btn-menu"><span class="icon icon-menu"></span></a>
-        <a href="#" class="btn btn-back" ng-if="curPage == 'detail' || curPage == 'shops'"><span class="icon icon-left"></span></a>
+        <a href="#" class="btn btn-back" ng-class="{'showMe': curPage == 'detail' || curPage == 'shops'}"><span class="icon icon-left"></span></a>
         <div class="menu">
             <h2 class="title">Menu</h2>
             <form>

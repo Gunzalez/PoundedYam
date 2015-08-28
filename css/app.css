@@ -151,7 +151,15 @@ a {
 }
 #main-navigation .btn-back {
   top: 70px;
+  right: -300px;
   font-size: 2.9em;
+}
+#main-navigation .btn-back.showMe {
+  right: 15px;
+  -webkit-transition: right 0.75s;
+  -moz-transition: right 0.75s;
+  -o-transition: right 0.75s;
+  transition: right 0.75s;
 }
 
 .icon, .btn {
