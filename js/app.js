@@ -3,7 +3,7 @@ var poundedYam = angular.module('PoundedYam', [
     'PoundedYam.services',
     'ngRoute',
     'ngTouch',
-    'ngCookies'
+    'angular-carousel'
 ]);
 
 
@@ -90,33 +90,6 @@ poundedYam.filter('convertState', function ($sce) {
     }
 });
 
-
-
-// Global scope variables
-poundedYam.run(function($rootScope, $cookies) {
-
-    //Cookie business
-    //if($cookies.get('PoundedYamSelectedMealIndex')) {
-    //    $rootScope.selectedIndex = $cookies.get('PoundedYamSelectedMealIndex');
-    //} else {
-    //    $rootScope.selectedIndex = -1;
-    //}
-
-    // Orientation watch
-    //document.addEventListener("click", function(e) {
-    //    $rootScope.$broadcast("documentClicked", e.target);
-    //});
-
-    //document.addEventListener("click", function(e) {
-    //    if (e.keyCode === 27)
-    //        console.log('Root scope change')
-    //});
-
-
-    // initial selected meal set to none
-    //$rootScope.selectedIndex = -1;
-
-});
 
 
 

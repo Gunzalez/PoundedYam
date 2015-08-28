@@ -4,20 +4,25 @@ Font-icons for buttons - zipped and http://app.fontastic.me/
 
 TODO -
 ==================================
+: Maybe
+-----------
 CSS background Zoom
-Homepage carousel
+May change localStorage to Cookies
+
+: For sure
+-----------
 Fix swiping
 Overlay for sharing
 Caching data
 Loading spinner
 Data - add one complete meal
-Arrow thingies
 Add launch screen
 
 
 ISSUES -
 ==================================
 Scrolling madness on details page (FIXED)
+Carousel click
 
 
 DOING -
@@ -34,6 +39,8 @@ I don't like the fonts! (see Note above)
 Add Standalone css and icon
 Permanent storage via cookies for fav, using local storage instead
 Prevent orientation change
+Arrow thingies
+Homepage carousel
 
 
 

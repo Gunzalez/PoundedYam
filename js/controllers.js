@@ -6,14 +6,24 @@ angular.module('PoundedYam.controllers', [])
             controller: 'featured'
         });
 
+        $scope.featured = [];
+
         pydataservice.getMeals()
             .success(function (data) {
                 if(!$scope.meals){
                     $scope.meals = data.meals;
                 }
-                $scope.mealCount = $scope.meals.length;
-                var rdn = Math.floor(Math.random() * $scope.mealCount);
-                $scope.meal = $scope.meals[rdn];
+                //$scope.mealCount = $scope.meals.length;
+                //var rdn = Math.floor(Math.random() * $scope.mealCount);
+                //$scope.meal = $scope.meals[rdn];
+
+                // TODO shuffle array before display
+                for (var i = 0; i < $scope.meals.length; i++) {
+                    if($scope.meals[i].featured){
+                        $scope.featured.push($scope.meals[i])
+                    }
+                }
+
             })
             .error(function (error) {
                 $scope.status = 'Unable to load meals data: ' + error.message;
@@ -21,6 +31,7 @@ angular.module('PoundedYam.controllers', [])
 
         $scope.displayMeal = 0;
         $scope.blueBanner = false;
+
         pydataservice.getDeals()
             .success(function (data) {
                 if(!$scope.deals){
@@ -43,7 +54,7 @@ angular.module('PoundedYam.controllers', [])
         var timer = setInterval(function(){
             $scope.changeBanner();
             $scope.$apply();
-        }, 6000);
+        }, 10000);
 
         $scope.bannerBtnClicked = function(){
             if(timer){
@@ -143,7 +154,6 @@ angular.module('PoundedYam.controllers', [])
             }
             $event.stopPropagation();
         }
-
     }])
 
 
@@ -236,5 +246,10 @@ angular.module('PoundedYam.controllers', [])
             }
         };
 
+        $scope.easterEgg = false;
+        var egg = setTimeout(function(){
+            $scope.easterEgg = true;
+            clearTimeout(egg);
+        }, 30000);
     }]);
 

@@ -5,5 +5,6 @@
     "instructions": "A set of instructions for pounded yam",
     "ingredients": "A set of ingredients for Pounded yam",
     "about": "This is where I say good buy, I am off to buy a car, oh yeah",
-    "strapline": "A dish for special occasions, like right now!"
+    "strapline": "A dish for special occasions, like right now!",
+    "featured": false
 }

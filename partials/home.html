@@ -2,14 +2,17 @@
     <div class="top-bar">
         <div class="top-bar-title">
             <h2>Featured meals</h2>
-            <p><span>1</span> of <span>5</span></p>
+            <p><span>{{carouselIndex+1}}</span> of <span ng-bind="featured.length"></span></p>
         </div>
     </div>
     <div class="main-meal" ng-click="navigate('/cook/' + meal.id)" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
-        <div class="imagery" style="background-image: url('img/{{meal.thumb}}')">
-        <!--<div class="imagery" back-img="img/{{meal.thumb}}">-->
-            <h2 class="description">{{meal.title}}</h2>
-        </div>
+        <ul rn-carousel rn-carousel-auto-slide rn-carousel-index="carouselIndex" rn-carousel-buffered="true" class="image" ng-class="{'easter-egg': easterEgg}">
+            <li ng-repeat="meal in featured">
+                <div class="imagery" style="background-image: url('img/{{meal.thumb}}')">
+                    <h2 class="description">{{meal.title}}</h2>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="bottom-bar" ng-class="{'blue-banner': blueBanner}">
         <div class="all-meals" ng-click="navigate('/list')">

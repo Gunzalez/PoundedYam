@@ -5,6 +5,7 @@
     "instructions": "<h3>A set of instructions for Eba and Okra stew</h3>",
     "ingredients": "<h3>A set of ingredients for Eba and Okra stew</h3>",
     "about": "<h3>Eba and Okra stew</h3><p>The Eba part is super fast food, but can be heavy, only the strong can stay awake after a decent helping of Eba.</p><p>Can be eaten with a variety of stews, but we'll talk about Okra for this choice.</p>",
-    "strapline": "Really, really quick to make but a bit heavy."
+    "strapline": "Really, really quick to make but a bit heavy.",
+    "featured": false
 
 }
