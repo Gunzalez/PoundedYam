@@ -1,10 +1,10 @@
 {
     "id": "55",
-    "title": "Eba and Okra Stew",
+    "title": "Eba and Okra stew",
     "thumb": "meals/eba-okra-stew.png",
-    "instructions": "A set of instructions for Eba and Okra Stew",
-    "ingredients": "A set of ingredients for Eba and Okra Stew",
-    "about": "The Eba part is super fast food, but can be heavy, only the strong can stay awake after a decent helping of Eba. Can be eaten with a variety of stews, but we'll talk about Okra for this choice.",
+    "instructions": "<h3>A set of instructions for Eba and Okra stew</h3>",
+    "ingredients": "<h3>A set of ingredients for Eba and Okra stew</h3>",
+    "about": "<h3>Eba and Okra stew</h3><p>The Eba part is super fast food, but can be heavy, only the strong can stay awake after a decent helping of Eba.</p><p>Can be eaten with a variety of stews, but we'll talk about Okra for this choice.</p>",
     "strapline": "Really, really quick to make but a bit heavy."
 
 }

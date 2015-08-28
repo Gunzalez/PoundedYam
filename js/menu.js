@@ -20,7 +20,7 @@
         winWidth: $(window).width(),
         winHeight: $(window).height(),
         initialButtonPos: 15,
-        spaceOnLeft: 80,
+        spaceOnLeft: 70,
         clickDelay: 300
     };
 
@@ -71,7 +71,7 @@
             $('#wrap').removeAttr('style');
         },
 
-        clickToClose: function(flag){
+        clickToCloseDiv: function(flag){
             if(flag){
                 var $clickSheet = $('<a href="#" class="clickToClose"></a>');
                 $("#wrap").before($clickSheet);
@@ -88,7 +88,7 @@
             pydMenu.actions.menuSlideIn();
             pydMenu.props.isOpen = false;
             pydMenu.utils.swapClass($icon, 'icon-cancel', 'icon-menu');
-            pydMenu.actions.clickToClose(false);
+            pydMenu.actions.clickToCloseDiv(false);
 
             var $contentBox = $('.detail-container .box');
             if($contentBox.length > 0){
@@ -137,18 +137,28 @@
                 pydMenu.actions.menuSlideOut();
                 pydMenu.props.isOpen = true;
                 pydMenu.utils.swapClass($icon, 'icon-menu', 'icon-cancel');
-                pydMenu.actions.clickToClose(true);
+                pydMenu.actions.clickToCloseDiv(true);
             } else {
                 pydMenu.actions.menuSlideIn();
                 pydMenu.props.isOpen = false;
                 pydMenu.utils.swapClass($icon, 'icon-cancel', 'icon-menu');
-                pydMenu.actions.clickToClose(false);
+                pydMenu.actions.clickToCloseDiv(false);
             }
         });
 
         $('body').on('click', '.clickToClose', function(evt){
             evt.preventDefault();
             pydMenu.menu.$button.trigger('click');
+        });
+
+        $('.title', pydMenu.menu.$list).on('click', function(evt){
+            evt.preventDefault();
+            pydMenu.menu.$button.trigger('click');
+        });
+
+        $('body').on('click', '.btn-back', function(evt){
+            evt.preventDefault();
+            history.back();
         });
 
         $(window).on('resize', function(){

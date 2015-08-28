@@ -2,8 +2,8 @@
     "id": "4",
     "title": "Goat Meat Pepper Soup",
     "thumb": "meals/goat-pepper-soup.png",
-    "instructions": "A set of instructions for Goat pepper Soup",
-    "ingredients": "A set of ingredients for Goat pepper Soup",
-    "about": "I will need someone to write up all these descriptions, maybe the shops",
+    "instructions": "<h3>A set of instructions for Goat meat pepper soup</h3>",
+    "ingredients": "<h3>A set of ingredients for Goat meat pepper soup</h3>",
+    "about": "<h3>I will need someone to write up all these descriptions, perhaps I could hire folks from shops that want ads in this app, hmmm, maybe, just maybe.</h3>",
     "strapline": "So good, men have killed for less."
 }

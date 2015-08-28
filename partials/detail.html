@@ -12,15 +12,15 @@
         <div class="scroll-bar">
             <div class="detail-container">
                 <ul class="headings">
-                    <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'about'}" ng-click="swapDesc('about')">About</a></li>
-                    <li><a href="" ng-class="{'on': descriptionToShow == 'ingredients'}" ng-click="swapDesc('ingredients')">Things</a></li>
-                    <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Steps</a></li>
+                    <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'about'}" ng-click="swapDesc('about')">Details <span class="triangle"></span></a></li>
+                    <li><a href="" ng-class="{'on': descriptionToShow == 'ingredients'}" ng-click="swapDesc('ingredients')">Items <span class="triangle"></span></a></li>
+                    <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'instructions'}" ng-click="swapDesc('instructions')">Making <span class="triangle"></span></a></li>
                 </ul>
                 <div class="box" get-height="184">
                     <div class="description">
                         <div class="about" ng-bind-html="meal.about | convertState" ng-if="descriptionToShow == 'about'"></div>
-                        <div class="ingredients" ng-bind="meal.ingredients" ng-if="descriptionToShow == 'ingredients'"></div>
-                        <div class="instructions" ng-bind="meal.instructions" ng-if="descriptionToShow == 'instructions'"></div>
+                        <div class="ingredients" ng-bind-html="meal.ingredients | convertState" ng-if="descriptionToShow == 'ingredients'"></div>
+                        <div class="instructions" ng-bind-html="meal.instructions | convertState" ng-if="descriptionToShow == 'instructions'"></div>
                     </div>
                 </div>
             </div>
