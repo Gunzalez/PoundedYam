@@ -1,4 +1,4 @@
-angular.module('PoundedYam.services', [])
+angular.module('poundedYamServices', [])
 
     .factory('pydataservice', ['$http', function($http) {
 

@@ -560,7 +560,7 @@ a {
   position: absolute;
   width: 0;
   height: 0;
-  bottom: -3px;
+  bottom: -8px;
   left: 50%;
   margin-left: -13px;
   border-style: solid;
@@ -571,10 +571,6 @@ a {
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  -webkit-transition: bottom 0.25s;
-  -moz-transition: bottom 0.25s;
-  -o-transition: bottom 0.25s;
-  transition: bottom 0.25s;
 }
 .detail-screen .detail-container .headings li a.on {
   background: #333333;
@@ -585,15 +581,10 @@ a {
 }
 .detail-screen .detail-container .headings li a.on .triangle {
   opacity: 1;
-  bottom: -6px;
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  -webkit-transition: bottom 0.25s;
-  -moz-transition: bottom 0.25s;
-  -o-transition: bottom 0.25s;
-  transition: bottom 0.25s;
 }
 .detail-screen .detail-container .description {
   clear: left;

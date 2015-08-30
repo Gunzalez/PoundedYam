@@ -1,6 +1,6 @@
-angular.module('PoundedYam.controllers', [])
+angular.module('poundedYamControllers', [])
 
-    .controller('homeController', ['$scope', 'navigatorService', 'pydataservice', function($scope, navigatorService, pydataservice) {
+    .controller('HomeController', ['$scope', 'navigatorService', 'pydataservice', function($scope, navigatorService, pydataservice) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'featured'
@@ -73,7 +73,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('listController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
+    .controller('ListController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'list'
@@ -165,7 +165,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('detailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
+    .controller('DetailController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'detail'
@@ -195,7 +195,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('shopsController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
+    .controller('ShopsController', ['$scope', '$routeParams', 'pydataservice', function($scope, $routeParams, pydataservice) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'shops'
@@ -216,7 +216,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('howController', ['$scope', function($scope) {
+    .controller('HowController', ['$scope', function($scope) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'how'
@@ -225,7 +225,7 @@ angular.module('PoundedYam.controllers', [])
 
 
 
-    .controller('aboutController', ['$scope', function($scope) {
+    .controller('AboutController', ['$scope', function($scope) {
 
         $scope.$emit('controllerLoaded', {
             controller: 'about'

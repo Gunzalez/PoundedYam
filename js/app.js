@@ -1,9 +1,9 @@
-var poundedYam = angular.module('PoundedYam', [
-    'PoundedYam.controllers',
-    'PoundedYam.services',
+var poundedYam = angular.module('poundedYam', [
+    'poundedYamControllers',
+    'poundedYamServices',
     'ngRoute',
     'ngTouch',
-    'angular-carousel'
+    'angularCarousel'
 ]);
 
 
@@ -12,27 +12,27 @@ poundedYam.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/home.html',
-            controller: 'homeController'
+            controller: 'HomeController'
         })
         .when('/list', {
             templateUrl: 'partials/list.html',
-            controller: 'listController'
+            controller: 'ListController'
         })
         .when('/about', {
             templateUrl: 'partials/about.html',
-            controller: 'aboutController'
+            controller: 'AboutController'
         })
         .when('/how', {
             templateUrl: 'partials/how.html',
-            controller: 'howController'
+            controller: 'HowController'
         })
         .when('/cook/:id', {
             templateUrl: 'partials/detail.html',
-            controller: 'detailController'
+            controller: 'DetailController'
         })
         .when('/shop/:id', {
             templateUrl: 'partials/shops.html',
-            controller: 'shopsController'
+            controller: 'ShopsController'
         })
         .otherwise({
             redirectTo: '/'
