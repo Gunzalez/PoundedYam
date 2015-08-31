@@ -73,7 +73,12 @@ angular.module('poundedYamControllers', [])
 
 
 
-    .controller('ListController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice',  function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
+    .controller('ListController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice', function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
+
+        $scope.shareThisMeal = function(){
+
+            console.log('WTF')
+        };
 
         $scope.$emit('controllerLoaded', {
             controller: 'list'
@@ -81,8 +86,7 @@ angular.module('poundedYamControllers', [])
 
         $scope.hasLocalStorage = false;
         if(localStorage){
-            $scope.hasLocalStorage  = true;
-
+            $scope.hasLocalStorage = true;
             var favourites = localStorage.getItem("favourites");
             if(favourites){
                 var favArr = favourites.split(",");
@@ -133,10 +137,6 @@ angular.module('poundedYamControllers', [])
             }
         };
 
-        $scope.shareThisMeal = function(){
-            alert('Gonna share this meal now')
-        };
-
         $scope.favouriteClicked = function($event, $index, id){
 
             if(localStorage){
@@ -183,9 +183,13 @@ angular.module('poundedYamControllers', [])
             });
 
         $scope.isReady = false;
-        $scope.setToReady = function(){
+        $scope.setToReady = function(imgSrc){
             $scope.isReady = true;
+            $scope.mealImage = {
+                background: 'url(img/'+ imgSrc +') 50% 50%'
+            }
         };
+
 
         $scope.descriptionToShow = 'about';
         $scope.swapDesc = function(newDescription){

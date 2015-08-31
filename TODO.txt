@@ -1,6 +1,13 @@
-Note -
+NOTE -
 ==================================
 Font-icons for buttons - zipped and http://app.fontastic.me/
+
+
+
+TODON'T -
+==================================
+May change localStorage to Cookies (No longer needed)
+Fix swiping (No longer needed)
 
 
 
@@ -9,12 +16,10 @@ TODO -
 : Maybe
 -----------
 CSS background Zoom
-May change localStorage to Cookies
+
 
 : For sure
 -----------
-Fix swiping
-Overlay for sharing
 Caching data
 Loading spinner
 Data - add one complete meal
@@ -24,17 +29,21 @@ See about BOWER!
 
 
 
+
+
 ISSUES -
 ==================================
-Scrolling madness on details page (FIXED)
-Carousel click
-White background for Text pages, How and ABout
+White background for Text pages, How and About
 
+Carousel click (FIXED)
+Error in detail image load (FIXED)
+Scrolling madness on details page (FIXED)
 
 
 
 DOING -
 ==================================
+Overlay for sharing
 Shops page
 
 

@@ -2,13 +2,13 @@
     <div class="top-bar">
         <div class="top-bar-title">
             <h2>Featured meals</h2>
-            <p><span>{{carouselIndex+1}}</span> of <span ng-bind="featured.length"></span></p>
+            <p><span ng-bind="carouselIndex+1"></span> of <span ng-bind="featured.length"></span></p>
         </div>
     </div>
-    <div class="main-meal" ng-click="navigate('/cook/' + meal.id)" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
-        <ul rn-carousel rn-carousel-transition="slide" rn-carousel-duration="300" rn-carousel-index="carouselIndex" rn-carousel-buffered="true" class="image" ng-class="{'easter-egg': easterEgg}">
+    <div class="main-meal" ng-swipe-right="swiped('right')" ng-swipe-left="swiped('left')">
+        <ul rn-carousel rn-carousel-transition="slide" rn-carousel-duration="300" rn-carousel-buffered rn-carousel-index="carouselIndex" rn-carousel-buffered="true" class="image" ng-class="{'easter-egg': easterEgg}">
             <!-- rn-carousel-auto-slide="7" -->
-            <li ng-repeat="meal in featured">
+            <li ng-repeat="meal in featured" ng-click="navigate('/cook/' + meal.id)">
                 <div class="imagery" style="background-image: url('img/{{meal.thumb}}')">
                     <h2 class="description">{{meal.title}}</h2>
                 </div>
