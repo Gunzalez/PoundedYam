@@ -11,13 +11,14 @@ angular.module('poundedYamControllers', [])
         pydataservice.getMeals()
             .success(function (data) {
                 if(!$scope.meals){
-                    $scope.meals = data.meals;
-                }
-                //$scope.mealCount = $scope.meals.length;
-                //var rdn = Math.floor(Math.random() * $scope.mealCount);
-                //$scope.meal = $scope.meals[rdn];
 
-                // TODO shuffle array before display
+                    var tempArr = data.meals,
+                        randOrd = function(){
+                            return (Math.round(Math.random())-0.5);
+                        };
+                    $scope.meals = tempArr.sort(randOrd);
+                }
+
                 for (var i = 0; i < $scope.meals.length; i++) {
                     if($scope.meals[i].featured){
                         $scope.featured.push($scope.meals[i])
@@ -75,11 +76,6 @@ angular.module('poundedYamControllers', [])
 
     .controller('ListController', ['$scope', 'anchorSmoothScroll', 'navigatorService', 'pydataservice', function($scope, anchorSmoothScroll, navigatorService, pydataservice) {
 
-        $scope.shareThisMeal = function(){
-
-            console.log('WTF')
-        };
-
         $scope.$emit('controllerLoaded', {
             controller: 'list'
         });
@@ -93,6 +89,12 @@ angular.module('poundedYamControllers', [])
             }
         }
 
+        $scope.shareThisMeal = function (event, index) {
+            event.stopPropagation();
+            $scope.meals[index].shareSheet = !$scope.meals[index].shareSheet;
+            //console.log(mealToShare.title, mealToShare.thumb);
+        };
+
         // preset with selected meal
         $scope.selectedIndex = -1;
 
@@ -101,6 +103,7 @@ angular.module('poundedYamControllers', [])
                 $scope.meals = data.meals;
                 for (var i = 0; i < $scope.meals.length; i++) {
                     $scope.meals[i].state = false;
+                    $scope.meals[i].shareSheet = false;
 
                     if(favourites){
                         var arrayPos = favArr.indexOf($scope.meals[i].id);
@@ -124,6 +127,7 @@ angular.module('poundedYamControllers', [])
             // turn all others off, and this one on or off
             var curState = $scope.meals[index].state;
             for (var i = 0; i < $scope.meals.length; i++) {
+                $scope.meals[i].shareSheet = false;
                 if($scope.selectedIndex == i){
                     $scope.meals[index].state = !curState;
                     if($scope.meals[index].state){
@@ -132,7 +136,7 @@ angular.module('poundedYamControllers', [])
                         anchorSmoothScroll.ngScrollTo(idOfElement);
                     }
                 } else {
-                    $scope.meals[i]['state'] = false;
+                    $scope.meals[i].state = false;
                 }
             }
         };
@@ -190,7 +194,6 @@ angular.module('poundedYamControllers', [])
             }
         };
 
-
         $scope.descriptionToShow = 'about';
         $scope.swapDesc = function(newDescription){
             $scope.descriptionToShow = newDescription;
@@ -211,12 +214,35 @@ angular.module('poundedYamControllers', [])
         pydataservice.getAMeal($scope.id)
             .success(function (data) {
                 $scope.meal = data;
+
+                pydataservice.getStores($scope.id)
+                    .success(function (data){
+                        $scope.stores = data.stores;
+                    })
+                    .error(function (error){
+                        $scope.status = 'Unable to load customer data: ' + error.message;
+                    })
+
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
-    }])
 
+        $scope.isReady = false;
+        $scope.setToReady = function(imgSrc){
+            $scope.isReady = true;
+            $scope.mealImage = {
+                background: 'url(img/'+ imgSrc +') 50% 50%'
+            }
+        };
+
+        $scope.descriptionToShow = 'stores';
+        $scope.swapDesc = function(newDescription){
+            $scope.descriptionToShow = newDescription;
+        }
+
+
+    }])
 
 
 

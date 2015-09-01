@@ -33,8 +33,7 @@ See about BOWER!
 
 ISSUES -
 ==================================
-White background for Text pages, How and About
-
+White background for Text pages, How and About (FIXED)
 Carousel click (FIXED)
 Error in detail image load (FIXED)
 Scrolling madness on details page (FIXED)
@@ -43,7 +42,7 @@ Scrolling madness on details page (FIXED)
 
 DOING -
 ==================================
-Overlay for sharing
+Overlay for sharing (That was painful)
 Shops page
 
 

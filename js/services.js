@@ -9,12 +9,16 @@ angular.module('poundedYamServices', [])
             return $http.get( baseUrl + "meals.json");
         };
 
+        pyDataAPI.getAMeal = function(id) {
+            return $http.get( baseUrl + "meal_"+ id +".json");
+        };
+
         pyDataAPI.getDeals = function() {
             return $http.get( baseUrl + "deals.json");
         };
 
-        pyDataAPI.getAMeal = function(id) {
-            return $http.get( baseUrl + "meal_"+ id +".json");
+        pyDataAPI.getStores = function(id) {
+            return $http.get( baseUrl + "stores.json");
         };
 
         return pyDataAPI;

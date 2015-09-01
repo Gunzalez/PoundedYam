@@ -1,19 +1,39 @@
-<div class="shops-screen" ng-class="{'ready': isReady }" ng-swipe-right="swiped('right')">
+<div class="shops-screen leaf-screen" ng-class="{'ready': isReady }" ng-swipe-right="swiped('right')">
     <div class="top-bar">
         <div class="top-bar-title">
-            <h2>{{meal.title}}</h2>
-            <p>{{meal.strapline}}</p>
+            <h2 ng-bind="meal.title"></h2>
+            <p ng-bind="meal.strapline"></p>
         </div>
     </div>
     <div id="detail">
         <div class="main-meal">
-            <div class="imagery" style="background-image: url('img/{{meal.thumb}}')"></div>
+            <div class="imagery" ng-style="mealImage"></div>
         </div>
         <div class="scroll-bar">
             <div class="detail-container">
-                <h2 style="padding: 0 15px">TODO: Where to buy {{meal.title}}</h2>
+                <ul class="headings">
+                    <li class="first-item"><a href="" ng-class="{'on': descriptionToShow == 'stores'}" ng-click="swapDesc('stores')">Stores <span class="triangle"></span></a></li>
+                    <li class="last-item"><a href="" ng-class="{'on': descriptionToShow == 'alternatives'}" ng-click="swapDesc('alternatives')">Options <span class="triangle"></span></a></li>
+                </ul>
+                <div class="box" get-height="184">
+                    <div class="description">
+                        <div class="about" ng-if="descriptionToShow == 'stores'">
+                            <ul class="shops-list">
+                                <li ng-repeat="store in stores" ng-class="{'odd':$odd}">
+                                    <h3>{{store.title}} <span class="distance">3</span></h3>
+                                    <div class="shop-detail">
+                                        <p>{{store.address}}
+                                            <br>{{store.postcode}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ingredients" ng-if="descriptionToShow == 'alternatives'"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <img src="img/{{meal.thumb}}" imageonload="setToReady()" class="display-none" />
+        <img ng-src="img/{{meal.thumb}}" imageonload="setToReady(meal.thumb)" class="display-none" />
     </div>
 </div>

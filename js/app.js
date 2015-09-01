@@ -51,6 +51,7 @@ poundedYam.directive('backImg', function(){
     };
 });
 
+
 poundedYam.directive('getHeight', function() {
     return {
         restrict: 'A',
@@ -64,6 +65,7 @@ poundedYam.directive('getHeight', function() {
     };
 });
 
+
 poundedYam.directive('imageonload', function() {
     return {
         restrict: 'A',
@@ -74,8 +76,6 @@ poundedYam.directive('imageonload', function() {
         }
     };
 });
-
-
 
 
 poundedYam.filter('convertState', function ($sce) {

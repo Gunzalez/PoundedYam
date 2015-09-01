@@ -11,16 +11,20 @@
             <a href="" class="addToFav" ng-if="hasLocalStorage" ng-click="favouriteClicked($event, $index, meal.id);">
                 <span class="icon" ng-class="meal.favourite ? 'icon-heart' : 'icon-fav'"></span>
             </a>
+            <div class="shareSheet" ng-show="meal.shareSheet" ng-click="$event.stopPropagation()">
+                <p>Share <strong>{{meal.title}}</strong> on Facebook, Twitter, Instagram... y'know the usual chaps (WIP)</p>
+            </div>
             <div class="bottom-bar">
                 <h2 ng-bind="meal.title"></h2>
                 <div class="buttons">
                     <ul class="actions">
                         <li class="first-item"><a ng-click="navigate('/cook/'+meal.id)">Cook {{meal[$index].state}}<span class="icon icon-cook"></span></a></li>
                         <li><a ng-click="navigate('/shop/'+meal.id)">Buy <span class="icon icon-buy"></span></a></li>
-                        <li class="last-item"><a ng-click="shareThisMeal()">Share <span class="icon icon-share"></span></a></li>
+                        <li class="last-item"><a ng-click="shareThisMeal($event, $index)">Share <span class="icon icon-share"></span></a></li>
                     </ul>
                 </div>
             </div>
         </li>
     </ul>
 </div>
+

@@ -1,0 +1,77 @@
+{
+    "stores" :[
+        {
+            "id": "501",
+            "title": "Mama Cass Nigerian Restaurant",
+            "address": "194-196 Burnt Oak Broadway, London",
+            "postcode": "HA8 0AS"
+        },
+        {
+            "id": "222",
+            "title": "Tasty African Food",
+            "address": "16 Plumstead Rd, London",
+            "postcode": "SE18 7BZ"
+
+        },
+        {
+            "id": "31",
+            "title": "Mama Calabar",
+            "address": "3rd Floor, Dexion House, 90-92 High St, London",
+            "postcode": "HA8 7HF"
+        },
+        {
+            "id": "60",
+            "title": "Eko Wine Bar & Restaurant",
+            "address": "160 Homerton High St, London",
+            "postcode": "E9 6JA"
+        },
+        {
+            "id": "90",
+            "title": "Duntai Ltd",
+            "address": "250 Plumstead High St, London",
+            "postcode": "SE18 1JN"
+        },
+        {
+            "id": "49",
+            "title": "The African Torch Restaurant",
+            "address": "135 High Cross Rd, London",
+            "postcode": "N17 9NU"
+        },
+        {
+            "id": "17",
+            "title": "280 Degrees African Restaurant & Bar",
+            "address": "280 Kilburn High Rd, London",
+            "postcode": "NW6 2BY"
+        },
+        {
+            "id": "71",
+            "title": "Enish Restaurant",
+            "address": "228 Lewisham High St, London",
+            "postcode": "SE13 6JU"
+        },
+        {
+            "id": "100",
+            "title": "805 Restaurant",
+            "address": "805 Old Kent Rd, London",
+            "postcode": "SE15 1NX"
+        },
+        {
+            "id": "110",
+            "title": "Banana African Restaurant & Bar",
+            "address": "594B High Rd, London",
+            "postcode": "N17 9TA"
+        },
+        {
+            "id": "111",
+            "title": "Squires Cafe & African Restaurant",
+            "address": "6 Beckton Rd, London E16 1EW",
+            "postcode": "E16 1EW"
+        },
+        {
+            "id": "112",
+            "title": "Shaka Zulu",
+            "address": "Stables Market, Chalk Farm Rd, London",
+            "postcode": "NW1 8AB"
+        }
+    ]
+}
